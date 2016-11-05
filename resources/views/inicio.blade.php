@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Shoppy an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Crazy Roach</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -28,8 +28,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <!-- Chartinator  -->
     <script src="js/chartinator.js" ></script>
     <script type="text/javascript">
-       
-
+ <!--//SESION-->
+	<script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 <!--skycons-icons-->
 <script src="js/skycons.js"></script>
 <!--//skycons-icons-->
@@ -41,12 +45,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--header start here-->
 				<div class="header-main">
 					<div class="header-left">
-							<div class="logo-name">
-
-									 <a href="index.html"> <h1>CrazyRoch</h1> 
-									<!--<img id="logo" src="" alt="Logo"/>--> 
-								  </a> 								
-							</div>
+						<div class="logo-name">
+							<a href="{{url('/principal')}}">  
+								<img src="images/logoo.png" width="120" height="50">
+							</a> 								
+						</div>
 							<!--search-box-->
 								<div class="search-box" style="margin-left: 50px;">
 									<form>
@@ -192,6 +195,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="clearfix"> </div>
 							</div>
 							<!--notification menu end -->
+							@if (Auth::guest())
+                     
+                     		@else
 							<div class="profile_details">		
 								<ul>
 									<li class="dropdown profile_details_drop">
@@ -199,8 +205,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="profile_img">	
 												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
 												<div class="user-name">
-													<p>Malorum</p>
-													<span>Administrator</span>
+													<p>{{ Auth::user()->name }}</p>
+													<span>TU</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
 												<i class="fa fa-angle-up lnr"></i>
@@ -210,11 +216,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-											<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+											<li> <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>
+                                            Logout</a></li>
+                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        	</form>
 										</ul>
 									</li>
 								</ul>
 							</div>
+							@endif
 							<div class="clearfix"> </div>				
 						</div>
 				     <div class="clearfix"> </div>	
@@ -246,7 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            <li><a href="portlet.html">Portlets</a></li>		            
 		          </ul>
 		        </li>
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
 		            </li>

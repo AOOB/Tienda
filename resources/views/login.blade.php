@@ -27,10 +27,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1>Login</h1>
 			</div>
 			<div class="login-block">
-				<form method="POST" action="{{url('/Login')}}">
+				<form method="POST" action="{{url('/login')}}">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
-					<input type="text" name="logemail" placeholder="Email" required="">
-					<input type="password" name="logpassword" class="lock" placeholder="Contraseña">
+				 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus><br>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div> 
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 					<div class="forgot-top-grids">
 						<div class="forgot-grid">
 							<ul>
@@ -63,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--inner block end here-->
 <!--copy rights start here-->
 <div class="copyrights">
-	 <p>© 2016 Ingenieria Web. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">AYD</a> </p>
+	 <p>© 2016 Ingenieria Web. All Rights Reserved | Design by AYD </p>
 </div>	
 <!--COPY rights end here-->
 

@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-<h1>lalla</h1>
+
 <!--Carrusel-->
                 <div class="row carousel-holder">
 

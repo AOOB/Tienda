@@ -1,36 +1,16 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Shoppy an Admin Panel Category Flat Bootstrap Responsive Website Template | Signup :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<!--js-->
-<script src="js/jquery-2.1.1.min.js"></script> 
-<!--icons-css-->
-<link href="css/font-awesome.css" rel="stylesheet">
-<!--Google Fonts-->
-<link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
-<!--//charts-->
-</head>
-<body>	
-<!--inner block start here-->
-<div class="signup-page-main">
-     <div class="signup-main">  	
-    	 <div class="signup-head">
-				<h1>Sign Up</h1>
-			</div>
-			<div class="signup-block">
-				<form method="POST"  action="{{  url('/register') }}">
-                    {{ csrf_field() }}
-					<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
@@ -59,19 +39,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" >
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required style="background-color: #f3f3f3;">
-                                <br>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
-
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -95,38 +74,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-					<div class="forgot-top-grids">
-						<div class="forgot-grid">
-							<ul>
-								<li>
-									<input type="checkbox" id="brand1" value="" required="">
-									<label for="brand1"><span></span>Estoy de acuerdo con los Términos y Condiciones.</label>
-								</li>
-							</ul>
-						</div>
-						
-						<div class="clearfix"> </div>
-					</div>
-					<input type="submit" name="Sign In" value="Registrate">														
-				</form>
-				<div class="sign-down">
-				<h4>Ya tienes una cuenta? <a href="{{url('Login')}}"> Logeate aquí.</a></h4>
-				  <h5><a href="{{url('/')}}">Volver</a></h5>
-				</div>
-			</div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<!--inner block end here-->
-<!--copy rights start here-->
-<div class="copyrights">
-	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-</div>	
-<!--COPY rights end here-->
-<!--scrolling js-->
-		<script src="js/jquery.nicescroll.js"></script>
-		<script src="js/scripts.js"></script>
-		<!--//scrolling js-->
-<script src="js/bootstrap.js"> </script>
-<!-- mother grid end here-->
-</body>
-</html>
+@endsection
