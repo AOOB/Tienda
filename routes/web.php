@@ -29,6 +29,10 @@ Route::get('/ListadoProductos',function (){
 Route::get('/ModificarProducto',function (){
 	return view ('editProduct');
 });
+
+Route::get('/Perfil',function (){
+	return view ('profile');
+});
 Route::post('/RegistroNuevoUsuario','usuariosController@RegistroNuevoUsuario');
 
 Route::post('/Login','sesionsController@Login');

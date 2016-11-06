@@ -18,13 +18,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="https://i.ytimg.com/vi/0S3we8Wv_ec/maxresdefault.jpg" height=300 width=800 >
+                                    <img class="slide-image" src="images/slide1.jpg">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="https://i.ytimg.com/vi/rAihUO2btgo/maxresdefault.jpg" height=300 width=800>
+                                    <img class="slide-image" src="images/slide2.jpg" >
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="https://i.ytimg.com/vi/wJzK_9SCfzA/maxresdefault.jpg" height=300 width=800>
+                                    <img class="slide-image" src="images/slide3.jpg">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev" height=300 width=800>

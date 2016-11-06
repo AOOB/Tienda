@@ -6,7 +6,7 @@
 @section('contenido')
 
 <div>
-	<div class="row col-md-12" style="max-height: 5%; background: #efefef;">
+	<div class="row col-md-12" style="max-height: 5%; background: #efefef;" align="center">
 		Productos.
 	</div>
 	<div class="row">
