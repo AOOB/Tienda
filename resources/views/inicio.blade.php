@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 			    @if (  Auth::user()->accesscontrol  == '1' )
-			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
+			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}/{{Auth::user()->email}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
 			          <ul id="menu-comunicacao-sub" >
 			            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
 			            </li>
@@ -156,16 +156,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
 		 		@endif
 		         <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
-		         <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	 <ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="404.html">404</a></li>
-			            <li id="menu-academico-boletim" ><a href="blank.html">Blank</a></li>
-		             </ul>
-		         </li>
-		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Productos</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+			            <li><a href="price.html">Price</a>
+			            </li>
 		             </ul>
 		         </li>
 		         @endif

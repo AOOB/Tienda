@@ -22,13 +22,9 @@ Route::get('/nuevoProducto',function (){
 	return view ('newProduct');
 });
 
-Route::get('/ListadoProductos',function (){
-	return view ('listadoProductos');
-});
+Route::get('/ListadoProductos','productController@ListadoProductos');
 
-Route::get('/ModificarProducto',function (){
-	return view ('editProduct');
-});
+Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
 
 Route::get('/Perfil',function (){
 	return view ('profile');
@@ -37,7 +33,7 @@ Route::post('/RegistroNuevoUsuario','usuariosController@RegistroNuevoUsuario');
 
 Route::post('/Login','sesionsController@Login');
 
-Route::get('tryToIntoSectionAdmin','processController@tryToIntoSectionAdmin');
+Route::get('tryToIntoSectionAdmin/{id}','processController@tryToIntoSectionAdmin');
 
 
 Auth::routes();
