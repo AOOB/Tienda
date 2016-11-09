@@ -8,25 +8,26 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="{{ url('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all"/>
 <!--js-->
-<script src="js/jquery-2.1.1.min.js"></script> 
+<script src="{{ url('js/jquery-2.1.1.min.js') }}"></script> 
+<script src="{{ url('js/stuff.js') }}"></script> 
 <!--icons-css-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="{{ url('css/font-awesome.css') }}" rel="stylesheet"> 
 <!--Google Fonts-->
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
 <!--static chart-->
-<script src="js/Chart.min.js"></script>
+<script src="{{ url('js/Chart.min.js') }}"></script>
 <!--//charts-->
 <!-- geo chart -->
     <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
     <script>window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')</script>
     <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
      <!-- Chartinator  -->
-    <script src="js/chartinator.js" ></script>
+    <script src="{{ url('js/chartinator.js') }}" ></script>
     <script type="text/javascript">
  <!--//SESION-->
 	<script>
@@ -35,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ]); ?>
     </script>
 <!--skycons-icons-->
-<script src="js/skycons.js"></script>
+<script src="{{ url('js/skycons.js') }}"></script>
 <!--//skycons-icons-->
 </head>
 <body>	
@@ -47,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="header-left">
 						<div class="logo-name">
 							<a href="{{url('/principal')}}">  
-								<img src="images/logoo.png" width="120" height="50">
+								<img src="{{ url('images/logoo.png') }}" width="120" height="50">
 							</a> 								
 						</div>
 							<!--search-box-->
@@ -98,6 +99,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
 	        	  	</ul>
 	     	    </li>			
+		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         	<ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
+			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+		             </ul>
+		        </li>
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
 		            <li><a href="grids.html">Grids</a></li>
@@ -107,12 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
 		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
-		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
-		             </ul>
-		         </li>
+		         
 		         @else
 		         <li><a href="#"><img class="img-circle" src="{{ Auth::user()->image }}" width="35px" height="35px"><br><span>{{ Auth::user()->name }}</span><span class="fa fa-angle-right" style="float: right"></span></a>
 	        		<ul>
@@ -128,7 +130,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </form>
                         </li>
 	        	  	</ul>
-	     	    </li>			
+	     	    </li>
+	     	    <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         	<ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
+			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+		            </ul>
+		        </li>			
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul>
 		            <li><a href="grids.html">Grids</a></li>
@@ -136,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 			    @if (  Auth::user()->accesscontrol  == '1' )
-			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
+			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}/{{Auth::user()->email}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
 			          <ul id="menu-comunicacao-sub" >
 			            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
 			            </li>
@@ -156,16 +164,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
 		 		@endif
 		         <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
-		         <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	 <ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="404.html">404</a></li>
-			            <li id="menu-academico-boletim" ><a href="blank.html">Blank</a></li>
-		             </ul>
-		         </li>
-		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Productos</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+			            <li><a href="price.html">Price</a>
+			            </li>
 		             </ul>
 		         </li>
 		         @endif
@@ -177,8 +179,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 <script>
-var toggle = true;
-            
+var toggle = false;
+$(document).ready(function() { $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+    $("#menu span").css({"position":"absolute"});});
 $(".sidebar-icon").click(function() {                
   if (toggle)
   {

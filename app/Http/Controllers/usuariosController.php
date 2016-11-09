@@ -28,4 +28,14 @@ class usuariosController extends Controller
 
 		return Redirect('/Login');
     }
+
+     public function guardar($image,$id)
+    {
+        $id=$id;
+        $image=$image;
+        $query="update users set image=$image where id=$id";
+         DB::update($query);
+
+        return Redirect ('/perfil');
+    }
 }

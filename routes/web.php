@@ -19,26 +19,30 @@ Route::get('/AdminPanel',function (){
 });
 
 Route::get('/nuevoProducto',function (){
-	return view ('newProduct');
+	return view ('adminpanel.newProduct');
 });
 
-Route::get('/ListadoProductos',function (){
-	return view ('listadoProductos');
-});
+Route::get('/newProduct','productController@newProduct');
 
-Route::get('/ModificarProducto',function (){
-	return view ('editProduct');
-});
+Route::get('/ListadoProductos','productController@ListadoProductos');
 
-Route::get('/Perfil',function (){
+Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
+
+Route::get('/perfil',function (){
 	return view ('profile');
 });
+
+//Route::get('/Perfil', 'usuariosController@guardar');
+
+Route::get('/calando/{id}/{image}', 'usuariosController@guardar');
 Route::post('/RegistroNuevoUsuario','usuariosController@RegistroNuevoUsuario');
 
 Route::post('/Login','sesionsController@Login');
 
-Route::get('tryToIntoSectionAdmin','processController@tryToIntoSectionAdmin');
+Route::get('tryToIntoSectionAdmin/{id}','processController@tryToIntoSectionAdmin');
 
+Route::get('/changeProductPicture','productController@ChangePicture');
+Route::get('/productModify','productController@ProductModify');
 
 Auth::routes();
 
