@@ -12,8 +12,5 @@ class products extends Model
     	return (($value*20)-3);  
     }
 
-    public function idDecripted($value){
-    	return (($value-3)/5);   
-    }
-
+   
 }

@@ -27,8 +27,8 @@
                 <tbody>
                 @foreach ( $dataProducts as $product )
                     <tr>
-                      <td>{{ $product->idEncripted($product->id) }}</td>
-                      <td><a href="{{url('/ModificarProducto')}}/{{$product->idEncripted($product->id)}}">{{ $product->name }}</a></td>
+                      <td>{{ $product->id }}</td>
+                      <td><a href="{{ url('/ModificarProducto') }}/{{ $product->id }}">{{ $product->name }}</a></td>
                       <td> {{$product->price}} </td>                                                                      
                       <td> {{$product->sellers}} </td>
                       <td> {{$product->valoration}} </td>                                                                      

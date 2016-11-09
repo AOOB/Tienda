@@ -13,9 +13,12 @@ class productController extends Controller
    		return view('adminpanel.productslist')->with('dataProducts', $dataProducts);
    	}
 
-   	public function ModificaciondeProducto($value)
-   	{
-   		$dataProduct=products::find($value);
+   	public function ModificaciondeProducto($value){	
+   		//$value=(($value+3)/20);
+   		$dataProduct=products::find($value)->First();
+   		//dd($dataProduct['attributes']['id']);
+   		return view('adminpanel.modificaproducto')->with('dataProduct',$dataProduct);
 
    	}
+
 }
