@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->tinyinteger('accesscontrol');
+            $table->string('image', 150)->default('https://lh5.googleusercontent.com/--UmpxNXAfc8/AAAAAAAAAAI/AAAAAAAAAp4/tkBsp4GXv6U/photo.jpg');
             $table->rememberToken();
             $table->timestamps();
         });
