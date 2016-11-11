@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->decimal('price',16,4)->default(0);
             $table->tinyinteger('valoration')->default(1);
             $table->integer('sellers')->default(0);
+            $table->integer('categories_id')->unsigned();
+            $table->foreign('categories_id')->references('id')->on('categories');
             $table->tinyinteger('discount')->default(0);
             $table->timestamps();
         });
