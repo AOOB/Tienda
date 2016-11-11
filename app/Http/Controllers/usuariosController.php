@@ -29,13 +29,23 @@ class usuariosController extends Controller
 		return Redirect('/Login');
     }
 
-     public function guardar($image,$id)
-    {
-        $id=$id;
-        $image=$image;
-        $query="update users set image=$image where id=$id";
-         DB::update($query);
+     
+    public function ModifImage(Request $datImage) {
+        
+        $datUs=usuarios::find($datImage ->input('id'));
+        $datUs->image=$datImage->input('image');
 
-        return Redirect ('/perfil');
+        if ($datUs->save())
+        {
+            echo "<script languaje='javascript' type='text/javascript'>window.close();</script> ";
+            echo "<script languaje='javascript' type='text/javascript'>location.reload();</script> ";
+        }else{
+            echo "<script languaje='javascript' type='text/javascript'>alert('nel pastel error');</script> ";
+
+        }
+
+        return TRUE;
     }
+
+    
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\products as products;
+use App\categories as categories;
+
 class productController extends Controller
 {
 
@@ -75,4 +77,28 @@ class productController extends Controller
 
    }
 
+   public function ShowCategory() {
+      $categoryData = categories::all();
+
+      return view('adminpanel.addCategory')->with('categories',$categoryData);
+   }
+
+
+   public function newCategory(Request $Category) {
+      $categoryToSave = new categories;
+
+      $categoryToSave->name = $Category->input('inputName');
+
+      
+      $categoryToSave->save();
+      
+      return Redirect('/showCategory');
+   }
+
+   public function DeleteCategory($Category_id) {
+      $categoryToDelete = categories::find($Category_id);
+      $categoryToDelete->delete();
+      
+      return Redirect('/showCategory');
+   }
 }

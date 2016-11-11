@@ -32,9 +32,21 @@ Route::get('/perfil',function (){
 	return view ('profile');
 });
 
-//Route::get('/Perfil', 'usuariosController@guardar');
+Route::get('/Image',function (){
+	return view ('changeImage');
+});
 
-Route::get('/calando/{id}/{image}', 'usuariosController@guardar');
+
+Route::get('/calando', 'usuariosController@ModifImage');
+
+Route::get('/Configuracion',function (){
+	return view ('configuracion');
+});
+
+Route::get('/EditarNombre',function (){
+	return view ('changeName');
+});
+
 Route::post('/RegistroNuevoUsuario','usuariosController@RegistroNuevoUsuario');
 
 Route::post('/Login','sesionsController@Login');
@@ -43,6 +55,9 @@ Route::get('tryToIntoSectionAdmin/{id}','processController@tryToIntoSectionAdmin
 
 Route::get('/changeProductPicture','productController@ChangePicture');
 Route::get('/productModify','productController@ProductModify');
+Route::get('/showCategory','productController@ShowCategory');
+Route::get('/newCategory','productController@NewCategory');
+Route::get('/deleteCategory/{id}','productController@DeleteCategory');
 
 Auth::routes();
 
