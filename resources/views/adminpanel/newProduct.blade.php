@@ -36,7 +36,17 @@
 			        <input type="url" onchange="showimage()" class="form-control" name="inputImage" id="inputImage" placeholder="Url de la imagen">
 			      </div>
 			    </div>
-			     <div class="form-group">
+                <div class="form-group">
+			      <label for="inputCategory" class="col-md-2 control-label" >Categoría:</label>
+			      <div class="col-md-6">
+			      	<select id="inputCategory" name="inputCategory">
+			      	@foreach ( $categories as $category )
+			      		<option value="{{ $category->id }}">{{ $category->name }}</option>
+			        @endforeach		
+			        </select>
+			       </div>
+			    </div>  
+			    <div class="form-group">
 			      <label for="inputCant" class="col-md-2 control-label" >Cantidad:</label>
 			      <div class="col-md-6">
 			        <input type="number" name="inputQuantity" class="form-control" id="inputQuantity" required placeholder="Cantidad de producto">

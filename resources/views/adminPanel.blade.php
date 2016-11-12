@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="portlet-grid panel-info"> 
     		 <div class="panel-heading">
-    		     	<a href="{{ url('/nuevoProducto') }}"><h3 class="panel-title">Altas.</h3></a>
+    		     	<a href="{{ url('/newProduct') }}"><h3 class="panel-title">Altas.</h3></a>
     		  </div> 
     		  <div class="panel-body">
     		 		Alta nuevos productos.	 

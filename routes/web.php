@@ -18,13 +18,9 @@ Route::get('/AdminPanel',function (){
 	return view ('adminPanel');
 });
 
-Route::get('/nuevoProducto',function (){
-	return view ('adminpanel.newProduct');
-});
 
-Route::get('/newProduct','productController@newProduct');
 
-Route::get('/ListadoProductos','productController@ListadoProductos');
+
 
 Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
 
@@ -64,6 +60,10 @@ Route::get('/productModify','productController@ProductModify');
 Route::get('/showCategory','productController@ShowCategory');
 Route::get('/newCategory','productController@NewCategory');
 Route::get('/deleteCategory/{id}','productController@DeleteCategory');
+Route::get('/nuevoProducto','productController@prepareScreen');
+Route::get('/newProduct','productController@newProduct');
+Route::get('/ListadoProductos','productController@ListadoProductos');
+
 
 Auth::routes();
 

@@ -31,6 +31,20 @@
 				        <span class="help-block">Ligera y concreta descripción del producto.</span>
 				      </div>
 				    </div>
+				    <div class="form-group">
+				      <label for="inputCategory" class="col-md-2 control-label" >Categoría:</label>
+				      	<div class="col-md-6">
+				      		<select id="inputCategory" name="inputCategory">
+				      		@foreach ( $categories as $category )
+				      			@if ( $category->id == $dataProduct->categories_id )
+				      				<option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+				          		@else
+				          			<option value="{{ $category->id }}">{{ $category->name }}</option>
+				          		@endif 
+				            @endforeach		
+				        	</select>
+				       	</div>
+				    </div>  
 				     <div class="form-group">
 				      <label for="inputCant" class="col-md-2 control-label">Cantidad:</label>
 				      <div class="col-md-5">

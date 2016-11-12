@@ -10,16 +10,15 @@ class productController extends Controller
 {
 
 	public function ListadoProductos() {
-
    		$dataProducts=products::all();
    		return view('adminpanel.productslist')->with('dataProducts', $dataProducts);
    	}
 
    	public function ModificaciondeProducto($value){	
-   		//$value=(($value+3)/20);
-   		$dataProduct=products::find($value)->First();
-   		//dd($dataProduct['attributes']['id']);
-   		return view('adminpanel.modificaproducto')->with('dataProduct',$dataProduct);
+   	
+      	$dataProduct=products::find($value)->First();
+   	   $categories=categories::all();  
+      	return view('adminpanel.modificaproducto',compact('dataProduct','categories'));
 
    	}
 
@@ -31,9 +30,10 @@ class productController extends Controller
       $product->image = $request->input('inputImage');
       $product->quantity = $request->input('inputQuantity');
       $product->price = $request->input('inputPrice');
+      $product->categories_id = $request->input('inputCategory');
 
       if ($product->save()) {
-         return view('adminpanel.newProduct');
+         return view('adminpanel.newProduct')->with('categories', categories::all());
       } else {
          echo "<script> alert('Hubo un error al cargar el archivo, intente de nuevo más tarde')</script>";
       }
@@ -57,20 +57,22 @@ class productController extends Controller
       }
    }
 
-   public function ProductModify(Request $dataProduct)
+   public function ProductModify(Request $dataToUpdate)
    {
-      $dataToModify = products::find($dataProduct->input('id'));
+      $dataProduct = products::find($dataToUpdate->input('id'));
 
-      $dataToModify->name = $dataProduct->input('inputName');
-      $dataToModify->description = $dataProduct->input('inputDescription');
-      $dataToModify->quantity = $dataProduct->input('inputQuantity');
-      $dataToModify->price = $dataProduct->input('inputPrice');
-      $dataToModify->valoration = $dataProduct->input('inputValoration');
-      $dataToModify->sellers = $dataProduct->input('inputSellers');
-      $dataToModify->discount = $dataProduct->input('inputDiscount');
+      $dataProduct->name = $dataToUpdate->input('inputName');
+      $dataProduct->description = $dataToUpdate->input('inputDescription');
+      $dataProduct->quantity = $dataToUpdate->input('inputQuantity');
+      $dataProduct->price = $dataToUpdate->input('inputPrice');
+      $dataProduct->valoration = $dataToUpdate->input('inputValoration');
+      $dataProduct->categories_id = $dataToUpdate->input('inputCategory');
+      $dataProduct->sellers = $dataToUpdate->input('inputSellers');
+      $dataProduct->discount = $dataToUpdate->input('inputDiscount');
 
-      if ($dataToModify->save()) {
-         return view('adminpanel.modificaproducto')->with('dataProduct',$dataToModify);
+      if ($dataProduct->save()) {
+         $categories=categories::all();  
+         return view('adminpanel.modificaproducto',compact('dataProduct','categories'));
       } else {
          echo "<script> alert('Hubo un error al modificar el registro, intente de nuevo más tarde')</script>";
       }
@@ -100,5 +102,11 @@ class productController extends Controller
       $categoryToDelete->delete();
       
       return Redirect('/showCategory');
+   }
+
+   public function prepareScreen() {
+      $categories= categories::all();
+
+      return view('adminpanel.newProduct')->with('categories', $categories);
    }
 }
