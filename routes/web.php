@@ -17,33 +17,34 @@ Route::get('/principal',function(){
 Route::get('/AdminPanel',function (){
 	return view ('adminPanel');
 });
-
-
-
-
-
 Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
 
-Route::get('/perfil',function (){
-	return view ('profile');
-});
+
+/////////////////////////////////////////////////77
+Route::get('/perfil/{id}','usuariosController@mostrarInfoPago');
 
 Route::get('/Image',function (){
 	return view ('changeImage');
 });
-
+Route::get('/Configuracion',function (){
+	return view ('configuracion');
+});
 
 Route::get('/calando', 'usuariosController@ModifImage');
 
 
 Route::get('/pagosModify','usuariosController@pagosModify');
+Route::get('/userDatosMod','usuariosController@userDatosMod');
+
 
 Route::get('/mostrarInfoPago','usuariosController@mostrarInfoPago');
 
 
-Route::get('/Configuracion',function (){
-	return view ('configuracion');
-});
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
 
 Route::get('/EditarNombre',function (){
 	return view ('changeName');

@@ -17,7 +17,10 @@
     Datos del usuario
   </div>
   <div class="col-md-7" style="margin-top: 30px;" >
-  <form class="form-horizontal"  action="{{ url('/') }}" >
+  <form class="form-horizontal" action="{{ url('/userDatosMod') }}" method="get"  >
+  <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+
     <fieldset >
       <div class="form-group" >
         <label for="name" class="col-md-2 control-label">Nombre:</label>
@@ -35,6 +38,12 @@
         <label for="email" class="col-md-2 control-label">E-mail:</label>
         <div class="col-md-6">
           <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <button type="reset" class="btn btn-danger"><a href="{{url('/perfil')}}/{{ Auth::user()->id }}}"> Cancel</a></button>
+          <button type="submit" class="btn btn"> Enviar</button>
         </div>
       </div>
       </fieldset>       
@@ -111,15 +120,11 @@
       </div>
       <div class="form-group">
         <div class="col-md-10 col-md-offset-2">
-          <button type="reset" class="btn btn-danger"><a href="{{url('/perfil')}}"> Cancel</a></button>
+          <button type="reset" class="btn btn-danger"><a href="{{url('/perfil')}}/{{ Auth::user()->id }}}"> Cancel</a></button>
           <button type="submit" class="btn btn"> Enviar</button>
         </div>
       </div>
     </fieldset>       
   </form>
-    </div>
-    
-      
-
-    
+    </div>    
 @endsection

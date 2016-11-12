@@ -59,51 +59,51 @@
 	     <div class="form-group">
 	      <label for="address" class="col-md-2 control-label">Direccion:</label>
 	      <div class="col-md-6">
-	        <input type="text" name="address" class="form-control" value="{{$dataPago->address}}" >
+	        <label class="form-control--static mb-0"  name="address" >{{$dataPago->address}} </label>
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label for="country" class="col-md-2 control-label">Pais:</label>
 	      <div class="col-md-6">
-	        <input type="text" name="country" class="form-control" >    
+	        <label class="form-control--static mb-0" name="country">{{$dataPago->country}} </label>    
 	      </div>
 	      </div>
 	       <div class="form-group">
 	      <label for="state" class="col-md-2 control-label">Estado:</label>
 	      <div class="col-md-6">
-	        <input type="text" name="state" class="form-control" >    
+	        <label class="form-control--static mb-0"  name="state" > {{$dataPago->state}} </label>   
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label for="city" class="col-md-2 control-label" >Ciudad:</label>
 	      <div class="col-md-6">
-	        <input type="text" name="city" class="form-control" >    
+	        <label class="form-control--static mb-0" name="city">{{$dataPago->city}} </label>    
 	      </div>
 	    </div>
 	     <div class="form-group">
 	     <img src="https://www.crossroads.ca/images/payment/amex.png" height="30" width="40">
         <img src="https://aimmgmchi.cwpayments.com/registro/assets/images/logo_visa_mastercard.png" height="30" width="100">
-	      <label for="plastic_number" class="col-md-2 control-label">Num. de tarjeta:</label>
+	      <label for="plastic_number" class="col-md-2 control-label">Num. de tarjeta:</label><br>
 	      <div class="col-md-6">
-	        <input type="number" name="plastic_number" class="form-control"  >    
+	        <label class="form-control--static mb-0" name="plastic_number"> {{$dataPago->plastic_number}} </label>   
 	      </div>
 	    </div>
 	     <div class="form-group">
-	      <label for="expiration_date" class="col-md-2 control-label">Fecha de caducidad:</label>
+	      <label for="expiration_date" class="col-md-2 control-label">Fecha de caducidad:</label><br>
         <div class="col-md-6">
-          <input type="text" name="expiration_date" class="form-control" placeholder="MM / YY"  >   
+          <label class="form-control--static mb-0" name="expiration_date"> {{$dataPago->expiration_date}} </label>  
 	      </div>
 	    </div>
 	      <div class="form-group">
-	      <label for="CVV" class="col-md-2 control-label">Codigo de seguridad:</label>
+	      <label for="CVV" class="col-md-2 control-label">Codigo de seguridad:</label><br>
 	      <div class="col-md-6">
-	        <input type="number" name="CVV" class="form-control" >    
+	        <label class="form-control--static mb-0" name="CVV">{{$dataPago->CVV}} </label>   
 	      </div>
 	    </div>
 	     <div class="form-group">
-	      <label for="postal_code" class="col-md-2 control-label">Codigo Postal:</label>
+	      <label for="postal_code" class="col-md-2 control-label">Codigo Postal:</label><br>
 	      <div class="col-md-6">
-	        <input type="number" name="postal_code" class="form-control" >    
+	        <label class="form-control--static mb-0" name="postal_code" > {{$dataPago->postal_code}} </label>   
 	      </div>
 	    </div>
 	    <div class="form-group">
