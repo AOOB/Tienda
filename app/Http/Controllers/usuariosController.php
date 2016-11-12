@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuarios;
+use App\payInfo;
 use DB;
 class usuariosController extends Controller
 {
@@ -47,5 +48,34 @@ class usuariosController extends Controller
         return TRUE;
     }
 
-    
+    public function pagosModify(Request $dataToModify)
+   {
+
+      $dataPago = new payInfo;
+      $dataPago->user_id = $dataToModify->input('user_id');
+      $dataPago->name = $dataToModify->input('name');
+      $dataPago->firtLastname = $dataToModify->input('firtLastname');
+      $dataPago->address = $dataToModify->input('address');
+      $dataPago->country = $dataToModify->input('country');
+      $dataPago->state = $dataToModify->input('state');
+      $dataPago->city = $dataToModify->input('city');
+      $dataPago->plastic_number = $dataToModify->input('plastic_number');
+      $dataPago->expiration_date = $dataToModify->input('expiration_date');
+      $dataPago->CVV = $dataToModify->input('CVV');
+      $dataPago->postal_code = $dataToModify->input('postal_code');
+
+
+      if($dataPago->save())
+      {
+        return Redirect('/perfil');
+      }
+      
+   }
+ public function mostrarInfoPago()
+   {
+      $dataPago = payInfo::find($datosinfoPago->input('id'));
+      
+      return view('profile',compact('dataPago');
+
+   }
 }

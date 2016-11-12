@@ -39,6 +39,12 @@ Route::get('/Image',function (){
 
 Route::get('/calando', 'usuariosController@ModifImage');
 
+
+Route::get('/pagosModify','usuariosController@pagosModify');
+
+Route::get('/mostrarInfoPago','usuariosController@mostrarInfoPago');
+
+
 Route::get('/Configuracion',function (){
 	return view ('configuracion');
 });

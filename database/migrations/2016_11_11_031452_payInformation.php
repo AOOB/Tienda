@@ -18,12 +18,11 @@ class PayInformation extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('name',150)->nullable(false);
             $table->string('firtLastname',50)->nullable(false);
-            $table->string('secondLastname',50)->nullable(false);
             $table->string('address',150)->nullable(false);
             $table->string('country',50)->nullable(false);
             $table->string('state',50)->nullable(false);
             $table->string('city',50)->nullable(false);
-            $table->integer('plastic_number')->nullable(false);
+            $table->integer('plastic_number')->nullable(false)->unique();
             $table->string('expiration_date',5)->nullable(false);
             $table->tinyinteger('CVV')->nullable(false);
             $table->integer('postal_code')->nullable(false);                                      

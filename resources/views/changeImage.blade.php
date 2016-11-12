@@ -18,12 +18,12 @@
 			<label for="image">Imagen (url)</label>
 			<input type="url" class="form-control" name="image" style=" width: 300px; border: groove;" required>
 			<input type="hidden" name="id" value="{{ Auth::user()->id }}">
-		</div><button type="submit">ll</button>
+		</div>
 
 
 
 	
-			<!--<input type="submit" style=" background: #ff1493;">-->
+			<input type="submit" style=" background: #ff1493;">
 	
 </body>
 </html>
