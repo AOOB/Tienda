@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html>
 <head>
 <title>Crazy Roach</title>
@@ -137,11 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
 		            </ul>
 		        </li>			
-		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul>
-		            <li><a href="grids.html">Grids</a></li>
-		            <li><a href="portlet.html">Portlets</a></li>		            
-		          </ul>
+		        <li><a href="{{ url('/perfil')}}/{{Auth::user()->id }}"><i class="fa fa-cogs"></i><span>Configuración del Perfil</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		        </li>
 			    @if (  Auth::user()->accesscontrol  == '1' )
 			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}/{{Auth::user()->email}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
