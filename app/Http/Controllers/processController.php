@@ -46,7 +46,7 @@ class processController extends Controller
       return view('sales.productView', compact('dataProduct','similarProducts','productComments'));      
     }  
    
-   }
+   
 
    
 }

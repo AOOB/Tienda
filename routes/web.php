@@ -68,7 +68,7 @@ Route::get('/Producto/{id}','processController@ProductView');
 Route::get('/postAComment','commentsController@NewComment');
 Route::get('/Comentarios','commentsController@ListComments');
 Route::get('/commentAction','commentsController@CommentAction');
-Route::get('/Comprar','salesController@Buy')
+Route::get('/Comprar','salesController@Buy');
 
 
 Auth::routes();
