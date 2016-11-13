@@ -21,7 +21,7 @@
 			            <thead>
 			              <tr>
 			              <th>#</th>
-			              <th>Nombre</th>
+			              <th>Nombre</th> 
 			              <th>Opciones</th>
 			              </tr>
 			            </thead>

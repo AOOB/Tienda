@@ -1,6 +1,18 @@
  <!DOCTYPE HTML>
 <html>
 <head>
+<style type="text/css">
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+	/* Volver a dar tamaño al texto */
+	font-size: 32px;
+	font-size: 2rem;
+	
+	color: #888;
+}
+
+</style>
 <title>Crazy Roach</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -177,9 +189,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 var toggle = false;
 $(document).ready(function() { $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-    $("#menu span").css({"position":"absolute"});});
+    $("#menu span").css({"position":"absolute"}); });
 $(".sidebar-icon").click(function() {                
-  if (toggle)
+  if (!toggle)
   {
     $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
     $("#menu span").css({"position":"absolute"});
