@@ -11,33 +11,40 @@ Route::get('/Login', function () {
 Route::get('/Registro',function(){
 	return view('signup');
 });
-Route::get('/principal',function(){
-	return view('principal');
-});
+
 Route::get('/AdminPanel',function (){
 	return view ('adminPanel');
 });
+Route::get('/ModificarProducto','productController@ModificaciondeProducto');
 
 
-
-
-
-Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
-
-Route::get('/perfil',function (){
-	return view ('profile');
-});
+/////////////////////////////////////////////////77
+Route::get('/perfil/{id}','usuariosController@mostrarInfoPago');
 
 Route::get('/Image',function (){
 	return view ('changeImage');
 });
-
-
-Route::get('/calando', 'usuariosController@ModifImage');
-
 Route::get('/Configuracion',function (){
 	return view ('configuracion');
 });
+
+Route::get('/calando', 'usuariosController@ModifImage');
+
+
+Route::get('/pagosModify','usuariosController@pagosModify');
+Route::get('/userDatosMod','usuariosController@userDatosMod');
+
+
+Route::get('/mostrarInfoPago','usuariosController@mostrarInfoPago');
+
+Route::get('/principal','processController@showCategories');
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
 
 Route::get('/EditarNombre',function (){
 	return view ('changeName');
@@ -61,7 +68,7 @@ Route::get('/Producto/{id}','processController@ProductView');
 Route::get('/postAComment','commentsController@NewComment');
 Route::get('/Comentarios','commentsController@ListComments');
 Route::get('/commentAction','commentsController@CommentAction');
-Route::get('/Comprar','salesController@Buy')
+Route::get('/Comprar','salesController@Buy');
 
 
 Auth::routes();
