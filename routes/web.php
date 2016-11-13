@@ -11,13 +11,11 @@ Route::get('/Login', function () {
 Route::get('/Registro',function(){
 	return view('signup');
 });
-Route::get('/principal',function(){
-	return view('principal');
-});
+
 Route::get('/AdminPanel',function (){
 	return view ('adminPanel');
 });
-Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
+Route::get('/ModificarProducto','productController@ModificaciondeProducto');
 
 
 /////////////////////////////////////////////////77
@@ -39,6 +37,7 @@ Route::get('/userDatosMod','usuariosController@userDatosMod');
 
 Route::get('/mostrarInfoPago','usuariosController@mostrarInfoPago');
 
+Route::get('/principal','processController@showCategories');
 
 
 

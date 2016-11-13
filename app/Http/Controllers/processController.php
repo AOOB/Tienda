@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuarios as User;
+use App\categories;
+use App\products;
 use DB;
 class processController extends Controller
 {
@@ -23,5 +25,21 @@ class processController extends Controller
   		 }
 
    	}
+
+    public function showCategories() {
+
+     $dataCates = categories::all();
+
+      return view('principal',compact('dataCates'));
+   
+   }
+
+   public function favorites($id) {
+    
+    
+      $query="SELECT image,price FROM products ORDER BY sellers";
+      $produc=products::select($query);
+        return view('',compact('',''));
+   }
     
 }

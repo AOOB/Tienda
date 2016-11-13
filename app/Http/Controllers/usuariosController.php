@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\usuarios;
 use App\payInfo;
+use App\categories;
 use DB;
 class usuariosController extends Controller
 {
@@ -111,7 +112,26 @@ class usuariosController extends Controller
       if($dataToUpdate->save())
       {
         return Redirect("/perfil/".$datosUser->id);
-      }
-      
+      }  
    }
+
+   public function showCategories() {
+
+     $dataCates = categories::all();
+
+      return view('principal',compact('dataCates'));
+   
+   }
+
+   public function favorites($id) {
+    
+    
+      $query="SELECT image,price FROM products ORDER BY sellers";
+      $hh=products::select($query);
+        return view('',compact('',''));
+
+
+
+   }
+
 }
