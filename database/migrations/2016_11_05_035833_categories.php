@@ -15,7 +15,8 @@ class Categories extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100)->default("Category one");
+            $table->string('name',100)->default('Category one');
+            $table->string('image',150)->default('');
             $table->timestamps();
         });
     }

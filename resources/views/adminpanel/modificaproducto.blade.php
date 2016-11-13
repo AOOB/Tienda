@@ -34,7 +34,7 @@
 				    <div class="form-group">
 				      <label for="inputCategory" class="col-md-2 control-label" >Categoría:</label>
 				      	<div class="col-md-6">
-				      		<select id="inputCategory" name="inputCategory">
+				      		<select id="inputCategory" class="form-control" class="form-control" name="inputCategory">
 				      		@foreach ( $categories as $category )
 				      			@if ( $category->id == $dataProduct->categories_id )
 				      				<option value="{{ $category->id }}" selected>{{ $category->name }}</option>
