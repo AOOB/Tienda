@@ -60,15 +60,17 @@
         <h3>Mas vendidos</h3> 
     </div>
     <div class="row" style="margin-bottom: 300px; margin-top: 150px;"><br>
-            <div class="col-sm-6 col-md-2">
-                <div>
-                    <div class="caption" style="text-align: center;">
-                    <a href=""><img src="" style="height: 200px; width: 200px; border: solid 5px #eee;">
-                        <h3>lalala</h3>
-                    </a>
-                    </div>
-                 </div>
+            @foreach ($produc as $p)
+        <div class="col-sm-6 col-md-2">
+            <div>
+                <div class="caption" style="text-align: center;">
+                <a href=""><img src="{{ $p->image }}" style="height: 200px; width: 200px; border: solid 5px #eee;">
+                    <h3>lalala</h3>
+                </a>
+                </div>
             </div>
+        </div>
+        @endforeach
     </div>
 
 
