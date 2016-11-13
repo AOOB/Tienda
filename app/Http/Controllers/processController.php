@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuarios as User;
+<<<<<<< HEAD
 use App\products as products;
+=======
+use App\categories;
+use App\products;
+>>>>>>> 51adbf8d39fcac10ca89efc99069782843d6bc4c
 use DB;
 
 class processController extends Controller
@@ -25,6 +30,7 @@ class processController extends Controller
   		 }
 
    	}
+<<<<<<< HEAD
     public function ProductView($product){ 
       $dataProduct = products::find($product);
       $similarProducts = DB::table('products')->where('categories_id','=',$dataProduct->categories_id)->where('id','<>',$product)->limit(3)->get();
@@ -32,5 +38,23 @@ class processController extends Controller
       
       return view('sales.productView', compact('dataProduct','similarProducts','productComments'));      
     }
+=======
+
+    public function showCategories() {
+
+     $dataCates = categories::all();
+
+      return view('principal',compact('dataCates'));
+   
+   }
+
+   public function favorites($id) {
+    
+    
+      $query="SELECT image,price FROM products ORDER BY sellers";
+      $produc=products::select($query);
+        return view('',compact('',''));
+   }
+>>>>>>> 51adbf8d39fcac10ca89efc99069782843d6bc4c
     
 }

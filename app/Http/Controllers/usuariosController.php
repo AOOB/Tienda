@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\usuarios;
+use App\payInfo;
+use App\categories;
 use DB;
 class usuariosController extends Controller
 {
@@ -47,5 +49,89 @@ class usuariosController extends Controller
         return TRUE;
     }
 
+    public function pagosModify(Request $dataToModify)
+   {
+      
+
+      $id=$dataToModify->input('user_id');
+      $modificar=DB::table('payment_information')->where('user_id', $id)->first();
+
+      if(count($modificar)>0)
+      {
+      $dataPago = payInfo::find($modificar->id); 
+      $dataPago->user_id = $dataToModify->input('user_id');
+      $dataPago->name = $dataToModify->input('name');
+      $dataPago->firtLastname = $dataToModify->input('firtLastname');
+      $dataPago->address = $dataToModify->input('address');
+      $dataPago->country = $dataToModify->input('country');
+      $dataPago->state = $dataToModify->input('state');
+      $dataPago->city = $dataToModify->input('city');
+      $dataPago->plastic_number = $dataToModify->input('plastic_number');
+      $dataPago->expiration_date = $dataToModify->input('expiration_date');
+      $dataPago->CVV = $dataToModify->input('CVV');
+      $dataPago->postal_code = $dataToModify->input('postal_code');
+      }
+      else{
+      $dataPago = new payInfo; 
+      $dataPago->user_id = $dataToModify->input('user_id');
+      $dataPago->name = $dataToModify->input('name');
+      $dataPago->firtLastname = $dataToModify->input('firtLastname');
+      $dataPago->address = $dataToModify->input('address');
+      $dataPago->country = $dataToModify->input('country');
+      $dataPago->state = $dataToModify->input('state');
+      $dataPago->city = $dataToModify->input('city');
+      $dataPago->plastic_number = $dataToModify->input('plastic_number');
+      $dataPago->expiration_date = $dataToModify->input('expiration_date');
+      $dataPago->CVV = $dataToModify->input('CVV');
+      $dataPago->postal_code = $dataToModify->input('postal_code');
+     }
+
+      if($dataPago->save())
+      {
+        return Redirect("/perfil/".$dataToModify->user_id);
+      }
+      
+   }
+
+   
+    public function mostrarInfoPago($id) {
+      $dataPago = payInfo::find($id);
+      
+      return view('profile',compact('dataPago'));
+   }
+
+   public function userDatosMod(Request $datosUser)
+   {
+      
+      $dataToUpdate= usuarios::find($datosUser->input('id'));
+      $dataToUpdate->name = $datosUser->input('name');
+      $dataToUpdate->lastname = $datosUser->input('lastname');
+      $dataToUpdate->email = $datosUser->input('email');
+     
+
+      if($dataToUpdate->save())
+      {
+        return Redirect("/perfil/".$datosUser->id);
+      }  
+   }
+
+   public function showCategories() {
+
+     $dataCates = categories::all();
+
+      return view('principal',compact('dataCates'));
+   
+   }
+
+   public function favorites($id) {
     
+    
+      $query="SELECT image,price FROM products ORDER BY sellers";
+      $hh=products::select($query);
+        return view('',compact('',''));
+
+
+
+   }
+
 }
