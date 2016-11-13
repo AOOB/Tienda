@@ -28,18 +28,16 @@ class processController extends Controller
 
     public function showCategories() {
 
-     $dataCates = categories::all();
+    $dataCates = categories::all();
+    
+    $query="SELECT image,name,price FROM products ORDER BY sellers";
+    $produc=products::select($query);
 
-      return view('principal',compact('dataCates'));
+      return view('principal',compact('dataCates','produc'));
+
+    
    
    }
 
-   public function favorites($id) {
-    
-    
-      $query="SELECT image,price FROM products ORDER BY sellers";
-      $produc=products::select($query);
-        return view('',compact('',''));
-   }
-    
+   
 }
