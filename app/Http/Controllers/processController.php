@@ -21,7 +21,7 @@ class processController extends Controller
    			echo "<script>alert('Sus datos fueron verificados satisfactpriamente, Proceda.');<script>"; 	
    			return Redirect('AdminPanel');
    		 }else{
-   		 	echo "<script>alert('Usted no cuenta con lso permisos para acceder aquí.');<script>"; 	
+   		 	echo "<script>alert('Usted no cuenta con los permisos para acceder aquí.');<script>"; 	
   			return Redirect('Principal');
   		 }
 
@@ -30,10 +30,8 @@ class processController extends Controller
     public function showCategories() {
 
     $dataCates = categories::all();
-    
-    $query="SELECT image,name,price FROM products ORDER BY sellers";
-    $produc=products::select($query);
-
+  
+      $produc=DB::table('products')->select('id','image','name','price')->orderBy('sellers','DESC')->get();
       return view('principal',compact('dataCates','produc'));
     }
 

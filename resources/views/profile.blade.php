@@ -51,11 +51,11 @@
 	<form class="form-horizontal" action="{{ url('/mostrarInfoPago') }}" method="get"  >
 	<input type="hidden" name="_token" value="{{csrf_token()}}">
 	<input type="hidden" name="user_id" value="{{ Auth::user()->id }}}">
-
 	  <fieldset >
 	  <div id="separador" style="background-color: #efefef;" align="center">
 			Metodo de Pago		
 		</div><br>
+ 		@if (count($dataPago) > 0)
 	     <div class="form-group">
 	      <label for="address" class="col-md-2 control-label">Direccion:</label>
 	      <div class="col-md-6">
@@ -106,11 +106,19 @@
 	        <label class="form-control--static mb-0" name="postal_code" > {{$dataPago->postal_code}} </label>   
 	      </div>
 	    </div>
+
 	    <div class="form-group">
 	      <div class="col-md-10 col-md-offset-2">
 	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Editar</a></button>
 	      </div>
 	    </div>
+	    @else
+	    <div class="form-group">
+	      <div class="col-md-10 col-md-offset-2">
+	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Dar de alta un metodo de pago</a></button>
+	      </div>
+	    </div>
+	    @endif
 	  </fieldset>	      
 	</form>
 		</div>

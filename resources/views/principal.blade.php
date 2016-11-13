@@ -59,14 +59,15 @@
     <div id="separador" class="row col-md-12" style="background-color: #efefef; margin-top: 50px;" align="center">
         <h3>Mas vendidos</h3> 
     </div>
-    <div class="row" style="margin-bottom: 300px; margin-top: 150px;"><br>
-            @foreach ($produc as $p)
+    <div class="row" style="margin-bottom: 100px; margin-top: 150px;"><br>
+        @foreach ($produc as $p)
         <div class="col-sm-6 col-md-2">
             <div>
                 <div class="caption" style="text-align: center;">
-                <a href=""><img src="{{ $p->image }}" style="height: 200px; width: 200px; border: solid 5px #eee;">
-                    <h3>lalala</h3>
+                <a href="{{ url('/Producto')}}/{{$p->id}}"><img src="{{ $p->image }}" style="height: 200px; width: 200px; border: solid 5px #eee;">
+                    <h3>{{ $p->name }}</h3>
                 </a>
+                <h4>{{ $p->price * 1 }}</h4>
                 </div>
             </div>
         </div>
