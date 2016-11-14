@@ -17,7 +17,6 @@
 		Datos del usuario
 	</div>
 	<div class="col-md-7" style="margin-top: 30px;" >
-	<form class="form-horizontal"  action="{{ url('/') }}" method="get" >
 	  <fieldset >
 	    <div class="form-group" >
 	      <label for="name" class="col-md-2 control-label">Nombre:</label>
@@ -38,7 +37,6 @@
 	      </div>
 	    </div>
 	    </fieldset>	      
-	</form>
 		</div>
 
 		<!--Metodo de pago-->
@@ -55,7 +53,7 @@
 	  <div id="separador" style="background-color: #efefef;" align="center">
 			Metodo de Pago		
 		</div><br>
- 		@if (count($dataPago) > 0)
+ 		@foreach ($dataPagos as $dataPago)
 	     <div class="form-group">
 	      <label for="address" class="col-md-2 control-label">Direccion:</label>
 	      <div class="col-md-6">
@@ -112,10 +110,11 @@
 	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Editar</a></button>
 	      </div>
 	    </div>
-	    @else
+	    @endforeach
+	    @if ( count($dataPagos) == 0)
 	    <div class="form-group">
 	      <div class="col-md-10 col-md-offset-2">
-	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Dar de alta un metodo de pago</a></button>
+	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Dar de alta un metodo de pago </a></button>
 	      </div>
 	    </div>
 	    @endif
@@ -123,7 +122,4 @@
 	</form>
 		</div>
 		
-			
-
-	  
 @endsection

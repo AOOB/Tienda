@@ -40,6 +40,8 @@ Route::get('/mostrarInfoPago','usuariosController@mostrarInfoPago');
 Route::get('/principal','processController@showCategories');
 
 
+Route::get('/Productos/{id}','processController@showProductOfCategories');
+
 
 
 

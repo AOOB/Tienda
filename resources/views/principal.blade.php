@@ -46,7 +46,7 @@
         <div class="col-sm-6 col-md-2">
             <div>
                 <div class="caption" style=" text-align: center;">
-                <a href=""><img src="{{ $dc->image }}" style="height: 200px; width: 200px; border: solid 5px #eee;">
+                <a href="{{ url('/Productos') }}/{{ $dc->id }} "><img src="{{ $dc->image }}" style="height: 200px; width: 200px; border: solid 5px #eee;">
                     <h3>{{ $dc->name }}</h3>
                 </a>
                 </div>

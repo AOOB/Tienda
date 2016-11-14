@@ -94,9 +94,9 @@ class usuariosController extends Controller
 
    
     public function mostrarInfoPago($id) {
-      $dataPago = payInfo::find($id);
-      
-      return view('profile',compact('dataPago'));
+      $dataPagos = DB::table('payment_information')->where('user_id','=',$id)->get();
+    
+      return view('profile',compact('dataPagos'));
    }
 
    public function userDatosMod(Request $datosUser)
