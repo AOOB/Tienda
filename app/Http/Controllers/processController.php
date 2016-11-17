@@ -49,4 +49,10 @@ class processController extends Controller
     return view('showForCategories',compact('prod'));
     }
 
+    public function showAllProducts() {
+
+    $prod=products::all();
+    return view('allProducts',compact('prod'));
+    }
+
 }

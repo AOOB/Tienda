@@ -10,7 +10,7 @@
 <div align="center" class="col-md-6">
 <div  align="right" style="position:absolute; top:30px; left:700px; width:200px; height:200px; visibility:visible z-index:1">
 	<img class="img-rounded" style="margin-top: 20px;" src="{{ Auth::user()->image }}" height="300" width="300"></div>
-	<div style="position:absolute; top:300px;  width:1450px;  visibility:visible z-index:2"><a href="{{url('/Image')}}" target="popup"onclick="window.open(this.href, this.target,'top=100,left=50, width=500,height=100'); return location.reload(true);" ><img src="https://images.designtrends.com/wp-content/uploads/2016/01/18110453/Flat-Camera-Icon.png" height="50" width="60"></a></div>
+	<div style="position:absolute; top:300px;  width:1450px;  visibility:visible z-index:2"><a href="{{url('/Image')}}" target="popup"onclick="window.open(this.href, this.target,'top=100,left=50, width=500,height=100'); return false" ><img src="https://images.designtrends.com/wp-content/uploads/2016/01/18110453/Flat-Camera-Icon.png" height="50" width="60"></a></div>
 </div>
 
 	<div class="row col-md-7" style="max-height: 5%; background: #efefef;" align="center">

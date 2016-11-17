@@ -42,7 +42,7 @@ Route::get('/principal','processController@showCategories');
 
 Route::get('/Productos/{id}','processController@showProductOfCategories');
 
-
+Route::get('/TodosLosProductos','processController@showAllProducts');
 
 
 /////////////////////////////////////////////////////////////////////////
