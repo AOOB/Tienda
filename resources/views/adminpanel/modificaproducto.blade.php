@@ -4,7 +4,7 @@
 @endsection
 @section('contenido')
 <div>
-@if (!Auth::guest())
+@if (!Auth::guest() && Auth::user()->accesscontrol == 1)
 	<div align="center" class="row">
 		<h2>Editar Producto.</h2>
 	</div>

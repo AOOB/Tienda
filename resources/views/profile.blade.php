@@ -107,7 +107,7 @@
 
 	    <div class="form-group">
 	      <div class="col-md-10 col-md-offset-2">
-	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Editar</a></button>
+	        <button class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Editar</a></button>
 	      </div>
 	    </div>
 	    @endforeach

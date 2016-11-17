@@ -39,8 +39,8 @@ class processController extends Controller
       $dataProduct = products::find($product);
       $similarProducts = DB::table('products')->where('categories_id','=',$dataProduct->categories_id)->where('id','<>',$product)->limit(3)->get();
       $productComments = DB::table('comments as c')->join('users as u','u.id','=','c.user_id')->select('u.id','u.image','c.comment')->where('product_id','=',$product)->where('approved','<>',0)->get();
-      
-      return view('sales.productView', compact('dataProduct','similarProducts','productComments'));      
+      $checkIfCanVote = DB::table('sales as s')->join('user_sales as us', 'us.sales_id','=','s.id')->join('product_sold as ps','ps.sales_id','=','s.id')->select('us.user_id')->where('ps.product_id','=',$product)->get();
+      return view('sales.productView', compact('dataProduct','similarProducts','productComments','checkIfCanVote'));      
     }
 
     public function showProductOfCategories($idcat) {

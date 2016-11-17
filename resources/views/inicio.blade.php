@@ -115,13 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
-		             </ul>
+		            </ul>
 		        </li>
-		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          
-		        </li>
-		       
 		        
+		        <li><a href="#"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
 		         
 		         @else
@@ -149,22 +146,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 			    @if (  Auth::user()->accesscontrol  == '1' )
 			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}/{{Auth::user()->email}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
-			          <ul id="menu-comunicacao-sub" >
-			            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
-			            </li>
-			            <li id="menu-arquivos" ><a href="typography.html">Typography</a></li>
-			            <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
-			          </ul>
 			        </li>
 			    @endif    
 		         
-		        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul id="menu-academico-sub" >
-		          	 <li id="menu-academico-boletim" ><a href="login.html">Login</a></li>
-		            <li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>		           
-		          </ul>
-		        </li>
-   			    @if (  Auth::user()->accesscontrol  == '1' )
+		        @if (  Auth::user()->accesscontrol  == '1' )
 			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
 		 		@endif
 		         <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>

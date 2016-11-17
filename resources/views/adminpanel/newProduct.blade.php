@@ -5,6 +5,7 @@
 
 @section('contenido')
 <div>
+@if (!Auth::guest()  && Auth::user()->accesscontrol == 1 )
 	<div align="center" class="row">
 		<h2>Alta Producto.</h2>
 	</div>
@@ -85,6 +86,11 @@
 			document.getElementById('imgNewProd').src=link;	
 		}
 	</script>
+@else
+    <div align="center">
+        <a href="{{ url('/principal') }}"><img src="http://8016235491c6828f9cae-6b0d87410f7cc1525cc32b79408788c4.r96.cf2.rackcdn.com/1129/65064974_1.jpg" height="500px" width="500px"></a>
+    </div>
+@endif
 </div>
 
 @endsection

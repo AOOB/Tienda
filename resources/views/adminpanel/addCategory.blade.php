@@ -4,8 +4,7 @@
 @endsection
 @section('contenido')
 
-@if ( !Auth::guest() )
-	@if ( Auth::user()->accesscontrol )
+@if ( !Auth::guest()  && Auth::user()->accesscontrol == 1  )
 		<div>
 			<div align="center" class="row">
 				<h2>Alta Categoría.</h2>
@@ -29,7 +28,7 @@
 			            @foreach ( $categories as $category )
 			              <tr>
 			                <td>{{ $category->id }}</td>
-			                <td><a href="{{ url('/editCategory') }}/{{ $category->id }}">{{ $category->name }}</a></td>
+			                <td>{{ $category->name }}</td>
 			                <td>
 			                	<a href=" {{ url('/deleteCategory') }}/{{ $category->id }} "><button class="btn btn-danger">Eliminar</button></a>
 			                </td>
@@ -56,10 +55,11 @@
 			</div>
 
 		</div>
-	@endif
 
 @else
-
+	<div align="center">
+        <a href="{{ url('/principal') }}"><img src="http://8016235491c6828f9cae-6b0d87410f7cc1525cc32b79408788c4.r96.cf2.rackcdn.com/1129/65064974_1.jpg" height="500px" width="500px"></a>
+    </div>
 @endif
 
 @endsection

@@ -87,13 +87,20 @@ class productController extends Controller
 
 
    public function newCategory(Request $Category) {
-      $categoryToSave = new categories;
 
-      $categoryToSave->name = $Category->input('inputName');
+      $categoryToSave = $Category->input('inputName');
+      $changeOrSave = preg_split("/,/",$categoryToSave);
+      
+      if (is_numeric($changeOrSave[0])) {
+         $categoryToUpdate= categories::find($changeOrSave[0]);
+         $categoryToUpdate->name = $changeOrSave[1];
+         $categoryToUpdate->save();
+      } else {
+         $newCategory = new categories;
+         $newCategory->name = $changeOrSave[0];
+         $newCategory->save();
+      }
 
-      
-      $categoryToSave->save();
-      
       return Redirect('/showCategory');
    }
 
@@ -108,5 +115,17 @@ class productController extends Controller
       $categories= categories::all();
 
       return view('adminpanel.newProduct')->with('categories', $categories);
+   }
+
+   public function VoteProduct(Request $vote)
+   {
+      $product_id= $vote->input('inputProductId');
+      $product = products::find($product_id);
+      $value=$vote->input('inputValoration');
+       if ($value>0 && $value<6){
+         $product->valoration= ($product->valoration + $value)/2;
+         $product->save();
+       }
+       return Redirect ('/Producto/'.$product_id);
    }
 }
