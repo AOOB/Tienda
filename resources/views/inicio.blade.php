@@ -111,19 +111,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
 	        	  	</ul>
 	     	    </li>			
-		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
-		             </ul>
+		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span></span></a>
 		        </li>
-		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul>
-		            <li><a href="grids.html">Grids</a></li>
-		            <li><a href="portlet.html">Portlets</a></li>		            
-		          </ul>
-		        </li>
-		        <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+		        
+		        <li><a href="#"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
 		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
 		         
@@ -153,12 +144,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 			    @if (  Auth::user()->accesscontrol  == '1' )
 			        <li id="menu-comunicacao" ><a href="{{url('/tryToIntoSectionAdmin')}}/{{Auth::user()->email}}"><i class="fa fa-book nav_icon"></i><span>Admin Panel.</span><span class="fa fa-angle-right" style="float: right"></span></a>
-			          <ul id="menu-comunicacao-sub" >
-			            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
-			            </li>
-			            <li id="menu-arquivos" ><a href="typography.html">Typography</a></li>
-			            <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
-			          </ul>
 			        </li>
 			    @endif    
 		          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>

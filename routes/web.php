@@ -1,9 +1,7 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', 'processController@showCategories');
 
 Route::get('/Login', function () {
     return view('login');
@@ -69,6 +67,9 @@ Route::get('/postAComment','commentsController@NewComment');
 Route::get('/Comentarios','commentsController@ListComments');
 Route::get('/commentAction','commentsController@CommentAction');
 Route::get('/Comprar','salesController@Buy');
+Route::get('/voteProduct','productController@VoteProduct');
+Route::get('/ListadoPedidos','salesController@RequestList');
+Route::get('/finishPurchase','salesController@FinishPurchase');
 
 
 Auth::routes();
