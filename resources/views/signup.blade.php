@@ -107,22 +107,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						<div class="clearfix"> </div>
 					</div>
-					<input type="submit" name="Sign In" value="Registrate">														
+					<a href="{{url('/principal')}}"><input type="submit" name="Sign In" value="Registrate" >	</a>													
 				</form>
 				<div class="sign-down">
 				<h4>Ya tienes una cuenta? <a href="{{url('Login')}}"> Logeate aquí.</a></h4>
-				  <h5><a href="{{url('/')}}">Volver</a></h5>
+				  <h5><a href="{{url('/principal')}}">Volver</a></h5>
 				</div>
 			</div>
     </div>
 </div>
-<!--inner block end here-->
-<!--copy rights start here-->
-<div class="copyrights">
-	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-</div>	
-<!--COPY rights end here-->
-<!--scrolling js-->
+
 		<script src="js/jquery.nicescroll.js"></script>
 		<script src="js/scripts.js"></script>
 		<!--//scrolling js-->

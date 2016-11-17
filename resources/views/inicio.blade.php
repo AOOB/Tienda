@@ -109,21 +109,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             Logeate
                             </a>
                         </li>
+                         <li ><a href="{{url('/Registro')}}">Sign Up</a></li>
 	        	  	</ul>
 	     	    </li>			
 		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
 		             </ul>
 		        </li>
 		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul>
-		            <li><a href="grids.html">Grids</a></li>
-		            <li><a href="portlet.html">Portlets</a></li>		            
-		          </ul>
+		          
 		        </li>
-		        <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+		       
 		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
 		         
@@ -145,8 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	     	    </li>
 	     	    <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
+			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
 		            </ul>
 		        </li>			
 		        <li><a href="{{ url('/perfil')}}/{{Auth::user()->id }}"><i class="fa fa-cogs"></i><span>Configuración del Perfil</span><span class="fa fa-angle-right" style="float: right"></span></a>
@@ -161,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			          </ul>
 			        </li>
 			    @endif    
-		          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+		         
 		        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-academico-sub" >
 		          	 <li id="menu-academico-boletim" ><a href="login.html">Login</a></li>
@@ -213,4 +209,22 @@ $(".sidebar-icon").click(function() {
 <script src="js/bootstrap.js"> </script>
 <!-- mother grid end here-->
 </body>
+<footer style="background: #202121">
+<div class="row">
+	<div class=col-md-2>
+		<a href="{{url('/principal')}}">  
+			<img src="{{ url('images/pie.png') }}" width="200" height="150">
+		</a> 
+	</div>
+	<div class=col-md-3>
+	<p style="font-family: sans-serif; font-size: 14; color: #ffffff; text-align: center; margin-top: 30px;">La biblioteca actual de CrazyRoach incluye videojuegos aptos para diferentes personas algunos demos y muchos otros de paga, ademas de videojuegos fisicos y objetos de diferentes tipos.</p>
+	</div>
+	<div class=col-md-3>
+		<label style="color: #ffffff; font-family: sans-serif; font-size: 30;margin-top: 30px;">Compañia</label><br>
+		<a href="{{url('/Registro')}}" style=" border-top: thin dotted; border-top-color: #ffffff;">
+			Conviertete en afiliado
+		</a> 
+	</div>
+</div>
+</footer> 
 </html>                     

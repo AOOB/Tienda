@@ -43,4 +43,16 @@ class processController extends Controller
       return view('sales.productView', compact('dataProduct','similarProducts','productComments'));      
     }
 
+    public function showProductOfCategories($idcat) {
+
+    $prod=DB::table('products')->select('id','image','name','price','quantity')->where('categories_id','=',$idcat)->get();
+    return view('showForCategories',compact('prod'));
+    }
+
+    public function showAllProducts() {
+
+    $prod=products::all();
+    return view('allProducts',compact('prod'));
+    }
+
 }

@@ -10,14 +10,13 @@
 <div align="center" class="col-md-6">
 <div  align="right" style="position:absolute; top:30px; left:700px; width:200px; height:200px; visibility:visible z-index:1">
 	<img class="img-rounded" style="margin-top: 20px;" src="{{ Auth::user()->image }}" height="300" width="300"></div>
-	<div style="position:absolute; top:300px;  width:1450px;  visibility:visible z-index:2"><a href="{{url('/Image')}}" target="popup"onclick="window.open(this.href, this.target,'top=100,left=50, width=500,height=100'); return location.reload(true);" ><img src="https://images.designtrends.com/wp-content/uploads/2016/01/18110453/Flat-Camera-Icon.png" height="50" width="60"></a></div>
+	<div style="position:absolute; top:300px;  width:1450px;  visibility:visible z-index:2"><a href="{{url('/Image')}}" target="popup"onclick="window.open(this.href, this.target,'top=100,left=50, width=500,height=100'); return false" ><img src="https://images.designtrends.com/wp-content/uploads/2016/01/18110453/Flat-Camera-Icon.png" height="50" width="60"></a></div>
 </div>
 
 	<div class="row col-md-7" style="max-height: 5%; background: #efefef;" align="center">
 		Datos del usuario
 	</div>
 	<div class="col-md-7" style="margin-top: 30px;" >
-	<form class="form-horizontal"  action="{{ url('/') }}" method="get" >
 	  <fieldset >
 	    <div class="form-group" >
 	      <label for="name" class="col-md-2 control-label">Nombre:</label>
@@ -38,7 +37,6 @@
 	      </div>
 	    </div>
 	    </fieldset>	      
-	</form>
 		</div>
 
 		<!--Metodo de pago-->
@@ -55,7 +53,7 @@
 	  <div id="separador" style="background-color: #efefef;" align="center">
 			Metodo de Pago		
 		</div><br>
- 		@if (count($dataPago) > 0)
+ 		@foreach ($dataPagos as $dataPago)
 	     <div class="form-group">
 	      <label for="address" class="col-md-2 control-label">Direccion:</label>
 	      <div class="col-md-6">
@@ -112,10 +110,11 @@
 	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Editar</a></button>
 	      </div>
 	    </div>
-	    @else
+	    @endforeach
+	    @if ( count($dataPagos) == 0)
 	    <div class="form-group">
 	      <div class="col-md-10 col-md-offset-2">
-	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Dar de alta un metodo de pago</a></button>
+	        <button type="submit" class="btn btn" style="background: #000000;"><a href="{{url('/Configuracion')}}"> Dar de alta un metodo de pago </a></button>
 	      </div>
 	    </div>
 	    @endif
@@ -123,7 +122,4 @@
 	</form>
 		</div>
 		
-			
-
-	  
 @endsection
