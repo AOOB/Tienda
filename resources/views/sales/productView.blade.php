@@ -61,6 +61,7 @@
             </div>  
           </div>
           <br>
+          @if ( !Auth::guest() )
           <div class="row form-group">
            <label class="control-label"> Método de pago: </label>
               
@@ -70,14 +71,29 @@
               </select> 
           </div>
           <br>
-          @if ( !Auth::guest() )
+          
           <div class=" form-group">
             <div class="col-md-5">
               <label for="inpurQuantity" class="control-label">Cantiad:</label>
               <input class="form-control" onchange="" type="number"  name="inputQuantity" id="inputQuantity" min="1" value="1" max="999" style="max-width: 70%">
+              <input type="hidden" name="inputPrice" value="{{$dataProduct->price}}">
+              <input type="hidden" name="inputDiscount" value="{{$dataProduct->dicount}}">
+              <input type="hidden" name="inputProductId" value="{{ $dataProduct->id }}">
+              <input type="hidden" name="inputUserId" value="{{ Auth::user()->id }}">
             </div>
-            <div class="col-md-7">
+
+          </div>
+          <div class="row">
+            <button class="btn btn-success"> Ordenar </button>
+          </div>
+        </form>  
+         
+          <form action="{{ url('/voteProduct') }}">
+          <div class="col-md-7">
               <label>Clificar Producto:</label> <br>
+              <label>Clificación actual: {{ $dataProduct->valoration }} estrella(s) de 5 </label> 
+              
+              @if (count ($checkIfCanVote) > 0)
               <div class="row ec-stars-wrapper">
                 <a onclick="putCalification(1)" data-value="1" id="1" title="Votar con 1 estrellas">&#9733;</a>
                 <a onclick="putCalification(2)" data-value="2" id="2" title="Votar con 2 estrellas">&#9733;</a>
@@ -85,24 +101,20 @@
                 <a onclick="putCalification(4)" data-value="4" id="4" title="Votar con 4 estrellas">&#9733;</a>
                 <a onclick="putCalification(5)" data-value="5" id="5" title="Votar con 5 estrellas">&#9733;</a>
               </div>
-              <label>Clificación actual: {{ $dataProduct->valoration }} estrella(s) de 5 </label> 
-              <input type="hidden" name="inputValoration" id="inputValoration" value="">
-              <input type="hidden" name="inputPrice" value="{{$dataProduct->price}}">
-              <input type="hidden" name="inputDiscount" value="{{$dataProduct->dicount}}">
-              <input type="hidden" name="inputProductId" value="{{ $dataProduct->id }}">
-              <input type="hidden" name="inputUserId" value="{{ Auth::user()->id }}">
-            </div>
-          </div>
-          <div class="row">
-            <button class="btn btn-success"> Ordenar </button>
-          </div>
+
+              
+               <input type="hidden" name="inputValoration" id="inputValoration" value="">
+               <input type="hidden" name="inputProductId" value="{{ $dataProduct->id }}">
+               <button type="submit" class="btn btn-success">Ya haz comprado este producto, calificalo!</button>
+              @endif
+            </div> 
+            </form>
           @else
           <div class="row">
-            <button class="btn btn-warning"> Registrate para comprar y valorar este producto </button>
+            <label class="control-label"> Registrate para comprar y valorar este producto </label>
           </div>
           @endif
         </div>
-      </form>
     </div>
   </div>
   <div class="row" style="margin-top: 5%;" >

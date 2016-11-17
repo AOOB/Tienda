@@ -112,23 +112,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <li ><a href="{{url('/Registro')}}">Sign Up</a></li>
 	        	  	</ul>
 	     	    </li>			
-<<<<<<< HEAD
-		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span></span></a>
-		        </li>
-		        
-		        <li><a href="#"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
-=======
 		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
-		             </ul>
+		            </ul>
 		        </li>
-		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          
-		        </li>
-		       
->>>>>>> 0dc330870ea464fea55b4e83f38a3ee207e7cdb7
 		        
+		        <li><a href="#"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
 		         
 		         @else
@@ -159,13 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </li>
 			    @endif    
 		         
-		        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		          <ul id="menu-academico-sub" >
-		          	 <li id="menu-academico-boletim" ><a href="login.html">Login</a></li>
-		            <li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>		           
-		          </ul>
-		        </li>
-   			    @if (  Auth::user()->accesscontrol  == '1' )
+		        @if (  Auth::user()->accesscontrol  == '1' )
 			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
 		 		@endif
 		         <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>

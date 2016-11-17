@@ -15,6 +15,7 @@ class Ventas extends Migration
     {
          Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
+            $table->tinyinteger('approved')->deault(0);
             $table->decimal('total',16,6)->default (0.000000);
             $table->timestamps();
         });

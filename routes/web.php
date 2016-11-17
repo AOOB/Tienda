@@ -13,7 +13,7 @@ Route::get('/Registro',function(){
 Route::get('/AdminPanel',function (){
 	return view ('adminPanel');
 });
-Route::get('/ModificarProducto','productController@ModificaciondeProducto');
+Route::get('/ModificarProducto/{id}','productController@ModificaciondeProducto');
 
 
 /////////////////////////////////////////////////77

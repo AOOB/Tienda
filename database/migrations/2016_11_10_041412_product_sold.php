@@ -17,6 +17,7 @@ class ProductSold extends Migration
             $table->increments('id');
             $table->integer('sales_id')->unsigned();
             $table->integer('product_id')->unsigned();
+            $table->integer('quantity')->default(1);
             $table->foreign('sales_id')->references('id')->on('sales');
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();

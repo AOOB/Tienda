@@ -5,7 +5,7 @@
 
 @section('contenido')
 <div>
-@if (!Auth::guest())
+@if (!Auth::guest() && Auth::user()->accesscontrol == 1)
   <div class="chit-chat-layer1">
     <div class="col-md-8 chit-chat-layer1-left">
       <div class="work-progres">

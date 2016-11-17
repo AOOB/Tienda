@@ -9,7 +9,7 @@
  @foreach($prod as $p)
 	<div class="col-md-3" >
 		<div class="thumbnail"  style="width: 200px; height:250px; ">
-  			<img src="{{ $p->image }}" style="width: 200px; height:150px;">
+  			<a href="{{url('/Producto')}}/{{$p->id}}"><img src="{{ $p->image }}" style="width: 200px; height:150px;"></a>
   				<div class="caption" style="  overflow: auto; background: #ffffff "> 
     				<div align="center">
     					<label style="color: #ff1493; font-size: 23px; ">{{ $p->name }}</label>
