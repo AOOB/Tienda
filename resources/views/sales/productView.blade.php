@@ -20,7 +20,7 @@
               {{ $dataProduct->description }}             
             </div>
             <div class="col-md-7" align="center">
-              <img src="http://www.mxgames.es/2940-tm_home_default/camiseta-assassins-creed-iii-connor-y-aveline.jpg" width="100%">
+              <img src="{{ $dataProduct->image }}" width="100%">
             </div>
           </div>
           <div class="row" style="background: #efefef; margin-top: 1%;">
@@ -31,7 +31,7 @@
               <div class="col-md-4">
                 <div class="row">{{ $similarProduct->name }}</div>
                 <div class="row"><a href="{{url('/Producto')}}/{{ $similarProduct->id }}"><img class="img-rounded" src="{{ $similarProduct->image }}" width="100%"></img></div></a>
-                <div class="row" align="center">{{ $similarProduct->price }}</div>
+                <div class="row" align="center">${{ $similarProduct->price * 1}}</div>
               </div> 
             @endforeach
           </div>
