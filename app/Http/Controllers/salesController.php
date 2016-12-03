@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\sales as sales;
-use App\userSales as user_sales;
 use App\productSold as products_sold;
 use App\products as products;
 use App\payInfo as users_payInfo;
@@ -38,12 +37,8 @@ class salesController extends Controller
 
     	$sale = new sales;
     	$sale->total = $total;
+        $sale->user_id=$item->input('inputUserId');
     	$sale->save();
-
-    	$usersale= new user_sales;
-    	$usersale->user_id=$item->input('inputUserId');
-    	$usersale->sales_id=$sale->id;
-    	$usersale->save();
 
     	$prouctsold= new products_sold;
     	$prouctsold->sales_id=$sale->id;
@@ -57,7 +52,7 @@ class salesController extends Controller
     }
     public function RequestList()
     {
-        $dataRequests= DB::table('sales as s')->join('user_sales as us','s.id','=','us.sales_id')->join('product_sold as ps','s.id','=','ps.sales_id')->join('users as u','u.id','=','us.user_id')->select('s.*','ps.product_id','ps.quantity','u.name as user_name','u.id as user_id')->where('s.approved','=','0')->orderBy('s.updated_at','desc')->get();
+        $dataRequests= DB::table('sales as s')->join('product_sold as ps','s.id','=','ps.sales_id')->join('users as u','u.id','=','s.user_id')->select('s.*','ps.product_id','ps.quantity','u.name as user_name','u.id as user_id')->where('s.approved','=','0')->orderBy('s.updated_at','desc')->get();
         
         return view ('adminpanel.userRequest', compact('dataRequests'));
     }

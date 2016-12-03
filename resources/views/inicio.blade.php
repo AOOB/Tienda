@@ -101,7 +101,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
+		      	<?php
+			      
+		      	?>
+		      	<li><a href="{{ url('/ListaProductos') }}"><i class="fa fa-shopping-cart"></i><span>{{Cart::count()}}</span></a></li> 
 		      	@if (Auth::guest())
+
 			    <li><a href="#"><img class="img-circle" src="https://lh5.googleusercontent.com/--UmpxNXAfc8/AAAAAAAAAAI/AAAAAAAAAp4/tkBsp4GXv6U/photo.jpg" width="25px" height="25px"><br><span>Invitado</span><span class="fa fa-angle-right" style="float: right"></span></a>
 	        		<ul>
 	         		 	<li>
