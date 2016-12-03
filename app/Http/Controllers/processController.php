@@ -54,5 +54,12 @@ class processController extends Controller
     $prod=products::all();
     return view('allProducts',compact('prod'));
     }
+    public function pdf()
+       {
 
+        $vista=view('pdf');
+        $dompdf=\App::make('dompdf.wrapper');
+        $dompdf->loadHTML($vista);
+        return $dompdf->stream();
+    }
 }
