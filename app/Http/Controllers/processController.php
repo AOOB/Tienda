@@ -62,4 +62,13 @@ class processController extends Controller
         $dompdf->loadHTML($vista);
         return $dompdf->stream();
     }
+     public function email()
+    {
+      Mail::send('emails.correo',[], function ($message) 
+      {
+          $message->to('anao.ortegab@gmail.com'); 
+          $message->subject('Asunto del correo');
+      }
+ 
+    }
 }

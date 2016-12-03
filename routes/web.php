@@ -44,6 +44,11 @@ Route::get('/TodosLosProductos','processController@showAllProducts');
 
 Route::get('/pdf','processController@pdf');
 
+Route::get('/prueba','processController@email');
+
+
+
+
 /////////////////////////////////////////////////////////////////////////
 
 
