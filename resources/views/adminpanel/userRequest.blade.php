@@ -31,7 +31,7 @@
                 <td><a href="{{ url('/perfil') }}/{{ $dataRequest->user_id }}">{{ $dataRequest->user_name }}</a></td>
                 <td><a href="{{ url('/Producto')}}/{{ $dataRequest->product_id }}"> {{$dataRequest->product_id}} </a></td>
                 <td>{{ $dataRequest->quantity }}</td>                                                                      
-                <td> {{($dataRequest->total) * 1}} </td>
+                <td> {{($dataRequest->total) * ($dataRequest->quantity)}} </td>
                 <td>
                     <form action="{{ url('/finishPurchase') }}" method="GET">
                       <input type="hidden" name="inputProductId" value="{{ $dataRequest->product_id }}">

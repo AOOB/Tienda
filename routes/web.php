@@ -42,6 +42,7 @@ Route::get('/Productos/{id}','processController@showProductOfCategories');
 
 Route::get('/TodosLosProductos','processController@showAllProducts');
 
+Route::get('/pdf','processController@pdf');
 
 /////////////////////////////////////////////////////////////////////////
 

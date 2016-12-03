@@ -20,21 +20,12 @@
 	  <fieldset >
 	    <div class="form-group" >
 	      <label for="name" class="col-md-2 control-label">Nombre:</label>
-	      <div class="col-md-6">
-	        <label class="form-control--static mb-0"  name="name">{{ Auth::user()->name }}</label>
-	      </div>
-	    </div>
-	   <div class="form-group" >
+	   	  <label class="form-control--static mb-0"  name="name">{{ Auth::user()->name }}</label><br>
 	      <label for="lastname" class="col-md-2 control-label">Apellido:</label>
-	      <div class="col-md-6">
-	        <label class="form-control--static mb-0" name="lastname">{{ Auth::user()->lastname }}</label>
-	      </div>
-	    </div>
-	    <div class="form-group">
-	      <label for="email" class="col-md-2 control-label">E-mail:</label>
-	      <div class="col-md-6">
-	        <label class="form-control--static mb-0" name="email">{{ Auth::user()->email }}</label>
-	      </div>
+	      <label class="form-control--static mb-0" name="lastname">{{ Auth::user()->lastname }}</label><br>
+	      <label for="email" clas="col-md-2 control-label">E-mail:</label>
+	      <label class="form-control--static mb-0" name="email">{{ Auth::user()->email }}</label>
+	      
 	    </div>
 	    </fieldset>	      
 		</div>

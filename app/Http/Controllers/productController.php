@@ -90,14 +90,20 @@ class productController extends Controller
 
       $categoryToSave = $Category->input('inputName');
       $changeOrSave = preg_split("/,/",$categoryToSave);
-      
+         
       if (is_numeric($changeOrSave[0])) {
          $categoryToUpdate= categories::find($changeOrSave[0]);
          $categoryToUpdate->name = $changeOrSave[1];
+        if (isset($changeOrSave[2])){
+            $categoryToUpdate->image = $changeOrSave[2];
+         }
          $categoryToUpdate->save();
       } else {
          $newCategory = new categories;
          $newCategory->name = $changeOrSave[0];
+         if (isset($changeOrSave[1])){
+            $newCategory->image = $changeOrSave[1];
+         }
          $newCategory->save();
       }
 
