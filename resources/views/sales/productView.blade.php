@@ -38,7 +38,7 @@
     </div>
     <div class="col-md-6">
       <fieldset><legend>Datos de la compra</legend></fieldset>  
-      <form  class="form-horizontal" action="{{ url('/Comprar') }}">
+      <form  class="form-horizontal" action="{{ url('/AddToCart') }}">
         <div class="col-md-12" style="height: 400px;  border-radius: 5px; border-color: #e9e9e9;" >
           <div class="row form-group" style="border-bottom: 1px solid;">
             <div class="col-md-7">
@@ -84,10 +84,10 @@
 
           </div>
           <div class="row">
-            <button class="btn btn-success"> Ordenar </button>
+            <button class="btn btn-success" type="submit"> Agragar al carrito </button>
           </div>
         </form>  
-         
+        
           <form action="{{ url('/voteProduct') }}">
           <div class="col-md-7">
               <label>Clificar Producto:</label> <br>

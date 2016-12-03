@@ -73,6 +73,10 @@ Route::get('/Comprar','salesController@Buy');
 Route::get('/voteProduct','productController@VoteProduct');
 Route::get('/ListadoPedidos','salesController@RequestList');
 Route::get('/finishPurchase','salesController@FinishPurchase');
+Route::get('/AddToCart','cartController@addToCart');
+Route::get('/ListaProductos', function(){
+	return view('cartStuff.cartList');
+});
 
 
 Auth::routes();
