@@ -42,9 +42,12 @@ Route::get('/Productos/{id}','processController@showProductOfCategories');
 
 Route::get('/TodosLosProductos','processController@showAllProducts');
 
-Route::get('/pdf','processController@pdf');
+Route::get('/pdf/{sales_id}','processController@pdf');
 
-Route::get('/prueba','processController@email');
+Route::get('/prueba/{id}', 'processController@enviar_email');
+
+
+Route::get('/Compras/{user_id}','processController@compras');
 
 
 

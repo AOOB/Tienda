@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\usuarios as User;
 use App\categories;
+use App\sales as sales;
 use App\products as products;
 use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class processController extends Controller
 {
@@ -54,21 +58,36 @@ class processController extends Controller
     $prod=products::all();
     return view('allProducts',compact('prod'));
     }
-    public function pdf()
+    public function pdf($id)
        {
+         
+        $prod=DB::table('product_sold as ps')->join('products as p','p.id','=','ps.product_id')->select('p.*','ps.*')->where('ps.sales_id','=',$id)->get();
+        $sal=sales::find($id);
+        $user= Auth::user();
 
-        $vista=view('pdf');
+        $vista=view('pdf', compact('prod','sal','user'));
         $dompdf=\App::make('dompdf.wrapper');
         $dompdf->loadHTML($vista);
         return $dompdf->stream();
     }
-     public function email()
-    {
-      Mail::send('emails.correo',[], function ($message) 
-      {
-          $message->to('anao.ortegab@gmail.com'); 
-          $message->subject('Asunto del correo');
-      }
- 
+    
+    public function compras($idUser) {
+
+    $sal=DB::table('sales')->select('id','user_id','total','created_at')->where('user_id','=',$idUser)->get();
+    return view('compras',compact('sal'));
     }
+
+    public function enviar_email($idUser) {
+        $current_user = User::find($idUser);
+        $current_user->id = base64_encode($current_user->id);
+        $user = $current_user['attributes'];
+
+        Mail::send("emails.correo", ['user' =>$user], function ($message)  use ($user){
+        
+          $message->to($user['email']); 
+          $message->subject('Asunto del correo');
+      });
+    }
+
+    
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Correo</title>
-	<img src="http://orig09.deviantart.net/21d5/f/2012/171/9/7/gamer_logo___tuhin__s_editing_by_tuhin98-d545c0o.png" width="300" height="100">
+	<img src="http://imageshack.com/a/img924/3825/0o6Dxd.png" width="300" height="100">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
 	<p >Tu pago por el pedido ha sido aceptado.</p>
 	<p>En estos momentos, tu pago está siendo verificado. Por lo general, las verificaciones tardan menos de 24 horas. Tras la verificación, el vendedor comenzará a preparar tu pedido. Durante este tiempo no podrás hacer cambios en tu pedido.</p>
 	<label >Ingrese al siguiente LINK para ver su Compra</label>
-	<a href="" style="color: blue;">AQUI VA EL LINK :D </a>
+	<a href="{{url('/Compras')}}/{{'user_id'}}" style="color: blue;">127.0.0.1/CrazyRoach/public/Compras/{{ $user['id'] }} </a>
 
 </div>
 
@@ -21,9 +21,9 @@
  
 <div>
 	<label>Un saludo,<br></label>
-	<label>CrazyRoach.com</label>
+	<label>CrazyRoach.com</label><br>
 	<?php 
-echo date("d");
+echo date("d-m-Y");
 ;
 ?>
 </div>
