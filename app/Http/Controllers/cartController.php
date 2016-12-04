@@ -15,4 +15,18 @@ class cartController extends Controller
 
     	return Redirect('/ListaProductos');
     }
+    public function editItem(Request $itemSelected){
+    	$itemId = $itemSelected->input('inputId');
+    	$quantity = $itemSelected->input('inputQuantity');
+    	if ($quantity>=0){
+    	Cart::update($itemId, $quantity);
+   	 	return Redirect('/ListaProductos');
+   	 	}
+   	 	$this->removeItem($itemId);
+    }
+
+    public function removeItem($rowId) {
+    	Cart::remove($rowId);
+		return Redirect('/ListaProductos');
+    }
 }

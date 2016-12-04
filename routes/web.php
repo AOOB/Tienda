@@ -47,7 +47,7 @@ Route::get('/pdf/{sales_id}','processController@pdf');
 Route::get('/prueba/{id}', 'processController@enviar_email');
 
 
-Route::get('/Compras/{user_id}','processController@compras');
+Route::get('/Compras/{id}','processController@compras');
 
 
 

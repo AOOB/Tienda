@@ -61,7 +61,6 @@
             </div>  
           </div>
           <br>
-          @if ( !Auth::guest() )
           <div class="row form-group">
            <label class="control-label"> Método de pago: </label>
               
@@ -79,7 +78,6 @@
               <input type="hidden" name="inputPrice" value="{{$dataProduct->price}}">
               <input type="hidden" name="inputDiscount" value="{{$dataProduct->dicount}}">
               <input type="hidden" name="inputProductId" value="{{ $dataProduct->id }}">
-              <input type="hidden" name="inputUserId" value="{{ Auth::user()->id }}">
             </div>
 
           </div>
@@ -88,6 +86,7 @@
           </div>
         </form>  
         
+          @if ( !Auth::guest() )
           <form action="{{ url('/voteProduct') }}">
           <div class="col-md-7">
               <label>Clificar Producto:</label> <br>
