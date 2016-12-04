@@ -18,9 +18,8 @@
               <tr>
               <th>#</th>
               <th>Persona que hizo el peido</th>
-              <th>Producto pedido</th>
-              <th>Cantidad</th>
               <th>Precio total</th>
+              <th>Fecha</th>
               <th>Acción<th>
               </tr>
             </thead>
@@ -28,15 +27,14 @@
             @foreach ( $dataRequests as $dataRequest )
               <tr>
                 <td>{{ $dataRequest->id }}</td>
-                <td><a href="{{ url('/perfil') }}/{{ $dataRequest->user_id }}">{{ $dataRequest->user_name }}</a></td>
-                <td><a href="{{ url('/Producto')}}/{{ $dataRequest->product_id }}"> {{$dataRequest->product_id}} </a></td>
-                <td>{{ $dataRequest->quantity }}</td>                                                                      
-                <td> {{($dataRequest->total) * ($dataRequest->quantity)}} </td>
+                <td><a href="{{ url('/perfil') }}/{{ $dataRequest->user_id }}">{{ $dataRequest->user_name }}</a></td>                                
+                <td> ${{number_format($dataRequest->total)}} </td>
+                <td>{{ $dataRequest->created_at}}</td> 
                 <td>
                     <form action="{{ url('/finishPurchase') }}" method="GET">
-                      <input type="hidden" name="inputProductId" value="{{ $dataRequest->product_id }}">
+                      
                       <input type="hidden" name="inputRequestId" value="{{ $dataRequest->id }}">
-                      <input type="hidden" name="inputQuantity" value="{{ $dataRequest->quantity }}">  
+                      <input type="hidden" name="inputUserID" value="{{ $dataRequest->user_id }}">
                       <select name="inputOption"> 
                         <option value="0">Eviado</option>
                         <option value="1">Cancelar Pedido</option>

@@ -17,14 +17,15 @@
                 <tr>
                     <th>No. Compra</th>
                     <th>Total</th>
-                    <th>Fecha</th>
+                    <th>Fecha de la compra</th>
+                    <th>Detalle</th>
                 </tr>
             </thead>
             <tbody>
             @foreach ( $sal as $s )
               <tr>
                 <td>{{$s->id  }}</td>
-                <td>{{$s-> total}}</td>
+                <td>$ {{number_format($s-> total)}}</td>
                 <td>{{$s-> created_at}}</td>
                 <td><a href="{{url('pdf')}}/{{$s->id}}" class="btn btn-danger  glyphicon glyphicon-save-file" role="button"> PDF</a></td>
       

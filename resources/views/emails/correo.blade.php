@@ -10,10 +10,10 @@
 	<br><label style="color: #ff0000; font-family: century; font-size: 30px;"><b>Pago realizado con éxito</b></label>
 
 <div style="text-align: justify; font-size: 24px; ">
-	<p >Tu pago por el pedido ha sido aceptado.</p>
-	<p>En estos momentos, tu pago está siendo verificado. Por lo general, las verificaciones tardan menos de 24 horas. Tras la verificación, el vendedor comenzará a preparar tu pedido. Durante este tiempo no podrás hacer cambios en tu pedido.</p>
+	<p >¡FELICIDADES!Tu pago por el pedido ha sido aceptado.</p>
+	<p>En estos momentos, tu pago ha sido verificado. Por lo general, las entregas son realizadas dentro del periodo de 7 días hábiles. Si se desea el recivo de su compra puede ingresar alsiguiente link e imprimirlo fácilmente.</p>
 	<label >Ingrese al siguiente LINK para ver su Compra</label>
-	<a href="{{url('/Compras')}}/{{'user_id'}}" style="color: blue;">127.0.0.1/CrazyRoach/public/Compras/{{ $user['id'] }} </a>
+	<a href="{{url('/Compras')}}/{{$user['id']}}" style="color: blue;">Ingrese aquí para ver su compra.! </a>
 
 </div>
 

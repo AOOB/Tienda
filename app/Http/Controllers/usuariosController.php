@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\usuarios;
 use App\payInfo;
 use DB;
@@ -26,7 +27,7 @@ class usuariosController extends Controller
     		$nuevo->permisos=0;
     		$nuevo->save();
         }
-
+      
 		return Redirect('/Login');
     }
 
@@ -93,8 +94,9 @@ class usuariosController extends Controller
    }
 
    
-    public function mostrarInfoPago($id) {
-      $dataPagos = DB::table('payment_information')->where('user_id','=',$id)->get();
+    public function mostrarInfoPago() {
+      $current_user = Auth::user();
+      $dataPagos = DB::table('payment_information')->where('user_id','=',$current_user->id)->get();
     
       return view('profile',compact('dataPagos'));
    }

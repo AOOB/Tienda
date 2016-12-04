@@ -70,17 +70,18 @@
 	<tr>
 		<th>#</th>
         <th>Nombre</th>
-        <th>Precio</th>
-        <th>Cantidad</th>                                   
         <th>Descripcion</th>
+		<th>Cantidad</th>                                   
+        <th>Precio</th>
+        
 	</tr>
 	@foreach ( $prod as $p )
 	<tr class="contenido">
 		<td>{{$p->sales_id}}</td>
         <td>{{$p->name}}</td>
-        <td>{{$p->description}}</td>                                                                      
+        <td>{{$p->description}}</td>                                           
         <td>{{$p->quantity}}</td>
-        <td>{{$p->price}}</td>  
+        <td>$ {{number_format($p->price)}}</td>  
 	</tr>
 	 @endforeach
     <tr>
@@ -88,7 +89,7 @@
         <td>-</td>
 		<td>-</td>
         <td>Total</td>
-        <td>{{$sal->total}}</td>
+        <td>$ {{number_format($sal->total)}}</td>
 
     </tr>
              

@@ -72,7 +72,7 @@ class processController extends Controller
     }
     
     public function compras($idUser) {
-
+    $idUser = base64_decode($idUser);
     $sal=DB::table('sales')->select('id','user_id','total','created_at')->where('user_id','=',$idUser)->get();
     return view('compras',compact('sal'));
     }

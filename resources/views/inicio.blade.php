@@ -117,15 +117,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <li ><a href="{{url('/Registro')}}">Sign Up</a></li>
 	        	  	</ul>
 	     	    </li>			
-		        <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li><a href="#"><i class="fa fa-shopping-basket"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
 		            </ul>
 		        </li>
 		        
-		        <li><a href="#"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>		        
-		        <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
-		         
+		        
 		         @else
 		         <li><a href="#"><img class="img-circle" src="{{ Auth::user()->image }}" width="35px" height="35px"><br><span>{{ Auth::user()->name }}</span><span class="fa fa-angle-right" style="float: right"></span></a>
 	        		<ul>
@@ -142,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
 	        	  	</ul>
 	     	    </li>
-	     	    <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
+   		        <li><a href="#"><i class="fa fa-shopping-basket"></i><span>Tienda</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	<ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="{{url('/TodosLosProductos')}}">Product</a></li>
 		            </ul>
@@ -157,13 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        @if (  Auth::user()->accesscontrol  == '1' )
 			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
 		 		@endif
-		         <li><a href="#"><i class="fa fa-envelope"></i><span>Contactanos!</span></a> </li>
-		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Productos</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	<ul id="menu-academico-sub" >
-			            <li><a href="price.html">Price</a>
-			            </li>
-		             </ul>
-		         </li>
+		         
 		         @endif
 		      </ul>
 		    </div>
