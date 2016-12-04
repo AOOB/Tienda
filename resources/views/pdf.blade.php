@@ -61,9 +61,9 @@
     </div>
     <hr >
 
-    <h2>Ana Ofelia Ortega Bojorquez</h2>
+    <h2>{{ $user->name }} {{ $user->lastname }}</h2>
 
-    <h4>Fecha de compra: 02/Diciembre/2016</h4>
+    <h4>Fecha de compra: {{$sal->created_at}} </h4>
 
 <table >
 	<caption>Lista de articulos </caption>
@@ -74,13 +74,24 @@
         <th>Cantidad</th>                                   
         <th>Descripcion</th>
 	</tr>
+	@foreach ( $prod as $p )
 	<tr class="contenido">
-	 	<td>1</td>
-        <td>Blusa</td>
-        <td>$50</td>                                                                      
-        <td>4</td>
-        <td>blusa rosa de tirantes</td>  
+		<td>{{$p->sales_id}}</td>
+        <td>{{$p->name}}</td>
+        <td>{{$p->description}}</td>                                                                      
+        <td>{{$p->quantity}}</td>
+        <td>{{$p->price}}</td>  
 	</tr>
+	 @endforeach
+    <tr>
+        <td>-</td>
+        <td>-</td>
+		<td>-</td>
+        <td>Total</td>
+        <td>{{$sal->total}}</td>
+
+    </tr>
+             
 </table>
 
 
