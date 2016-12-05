@@ -12,10 +12,11 @@ class Categories extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100)->default("Category one");
+            $table->string('name',100)->default("Category one")->unique();
             $table->string('image',300)->default("http://kingofwallpapers.com/new/new-001.jpg");
             $table->timestamps();
         });

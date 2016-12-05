@@ -54,7 +54,6 @@ class processController extends Controller
     }
 
     public function showAllProducts() {
-
     $prod=products::all();
     return view('allProducts',compact('prod'));
     }
@@ -87,6 +86,41 @@ class processController extends Controller
           $message->to($user['email']); 
           $message->subject('Asunto del correo');
       });
+    }
+
+    public function selectedFile(Request $file){
+      $filePath = storage_path()."/app/CSVS/CSVFile.txt";
+      if (file_exists($filePath)){
+        unlink($filePath);
+      }
+
+      $file->inputFile->storeas('CSVS','CSVFile.txt');
+     
+      $Scan = fopen($filePath, 'r');
+   
+      while(!feof($Scan)) {
+          $line_to_register = fgets($Scan);
+          $data = explode(",",$line_to_register);
+         try {
+            $product = new products;
+            $product->name = $data[0];
+            $product->description = $data[1];
+            $product->image = $data[2];
+            $product->quantity = $data[3];
+            $product->price = $data[4];
+            $product->categories_id = $data[5];
+            $product->discount = $data[6];
+            $product->save(); 
+         } catch (\Exception $e) {
+           echo nl2br("Se registró un error en la siguiente linea \n\n".$line_to_register."\n\n Favor de verificar los datos, revisé si son correctos hay datos faltantes. \n\n Estructura del archivo: \n Nombre: Nombre del producto (Debe ser único en la base de datos) \n Descripción: Descripción del producto \n Url de la imagen: Url de la imagen del producto \n Cantidad: Cantidad del producto \n Precio: Precio sin impuestos del producto \n Categoría: Número ID de la categoría \n Descuento: Descuento que se le aplicará al producto. \n\n *RECUERDE QUE LOS ATRIBUTOS DEL PRODUCTO DENTRO DEL ARCHIVO DEBEN SER SEPARADOS POR MEDIO DE UNA COMA \",\" Y CADA PRODUCTO OCUPARÁ UNA LINEA DEL ARCHIVO*");
+           fclose($Scan);
+           return;
+         }
+          
+      } 
+      fclose($Scan);
+      exit;
+     
     }
 
     

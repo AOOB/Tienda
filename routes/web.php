@@ -87,8 +87,12 @@ Route::get('deleteItemCart/{rowId}','cartController@removeItem');
 Route::get('/ListaProductos', function(){
 	return view('cartStuff.cartList');
 });
+Route::get('/AltaCSV', function (){
+	return view ('adminPanel.uploadFile');
+});
+Route::post('/escan','processController@selectedFile');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'processController@showCategories');
