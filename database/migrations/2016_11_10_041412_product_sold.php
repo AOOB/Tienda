@@ -12,7 +12,8 @@ class ProductSold extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        Schema::dropIfExists('product_sold');
         Schema::create('product_sold', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sales_id')->unsigned();

@@ -27,9 +27,9 @@
     		 		Listado de los productos de la tienda.	 
     		  </div> 
     	</div>
-    	<div class="portlet-grid panel-danger"> 
+    	<div class="portlet-grid panel-info"> 
     		 <div class="panel-heading">
-    		     	<a href="#"><h3 class="panel-title">Importaciones.</h3></a>
+    		     	<a href="{{ url('/AltaCSV') }}"><h3 class="panel-title">Importaciones.</h3></a>
     		  </div> 
     		  <div class="panel-body">
     		 		Importación nuevos productos.	 

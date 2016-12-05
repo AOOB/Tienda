@@ -12,10 +12,12 @@ class CreateProductsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+
+        Schema::dropIfExists('products');
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100)->default("product");
+            $table->string('name',100)->default("product")->unique();
             $table->string('description',150)->default("description product");
             $table->string('image',150)->default("https://t3.ftcdn.net/jpg/00/93/69/54/240_F_93695419_PygMAPp64jG2zzULBColq84tBBD7Vfok.jpg");
             $table->integer('quantity')->default(0);
