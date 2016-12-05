@@ -54,7 +54,6 @@ class processController extends Controller
     }
 
     public function showAllProducts() {
-    dd(url('/T'));
     $prod=products::all();
     return view('allProducts',compact('prod'));
     }
