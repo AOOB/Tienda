@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="{{ url('/logout') }}"
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                Logout
+                                Salir
                             </a>
 
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -152,9 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			        </li>
 			    @endif    
 		         
-		        @if (  Auth::user()->accesscontrol  == '1' )
-			        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
-		 		@endif
+			        <li><a href="{{ url('/Compras') }}/{{base64_encode(Auth::user()->id)}}"><i class="fa fa-bar-chart"></i><span>Reporte de Compras</span></a></li>
 		         
 		         @endif
 		      </ul>

@@ -97,19 +97,19 @@
         <img src="https://aimmgmchi.cwpayments.com/registro/assets/images/logo_visa_mastercard.png" height="30" width="100">
         <label for="plastic_number" class="col-md-2 control-label">Num. de tarjeta:</label>
         <div class="col-md-6">
-          <input type="number" name="plastic_number" class="form-control" required>    
+          <input type="number" name="plastic_number" class="form-control" maxlength="12" required>
         </div>
       </div>
        <div class="form-group">
         <label for="expiration_date" class="col-md-2 control-label">Fecha de caducidad:</label>
         <div class="col-md-6">
-          <input type="text" name="expiration_date" class="form-control" placeholder="MM / YY" required>    
+          <input type="text" name="expiration_date" class="form-control" maxlength="5" placeholder="MM/YY" required>    
         </div>
       </div>
         <div class="form-group">
         <label for="CVV" class="col-md-2 control-label">Codigo de seguridad:</label>
         <div class="col-md-6">
-          <input type="number" name="CVV" class="form-control" required >    
+          <input type="password" name="CVV" class="form-control" maxlength="3" require>    
         </div>
       </div>
        <div class="form-group">

@@ -15,9 +15,9 @@
           <table  class="table table-hover">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Price</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
                     <th>Subtotal</th>
                     <th>Quitar producto</th>
                 </tr>
@@ -67,9 +67,15 @@
           <a href="{{ url('/Login') }}">Logeate</a>
         </div>
       @else
+        @if (Cart::count()>0)
         <div class="row" style="margin-left: 5%; margin-top: 2%;">
           <a href="{{ url('/buy') }}" class="btn btn-success">Realizar Compra</a>
         </div>
+        @else
+        <div align="center" >
+          <p> Su carrito está vacio, eliga algunos productos para poder seguir con la compra.</p>
+        </div>
+        @endif
       @endif
     </div>
   </div>   

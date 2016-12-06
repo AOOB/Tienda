@@ -5,6 +5,7 @@
 
 @section('contenido')
 <div>
+  @if (!Auth::guest()  && Auth::user()->id == $sal[0]->user_id)
   <div class="chit-chat-layer1">
     <div class="col-md-8 chit-chat-layer1-left">
       <div class="work-progres">
@@ -39,5 +40,10 @@
       </div>
     </div>
   </div>   
+  @else
+  <div align="center">
+    <a href="{{ url('/principal') }}"><img src="http://8016235491c6828f9cae-6b0d87410f7cc1525cc32b79408788c4.r96.cf2.rackcdn.com/1129/65064974_1.jpg" height="500px" width="500px"></a>
+  </div>
+  @endif
 </div>
 @endsection
