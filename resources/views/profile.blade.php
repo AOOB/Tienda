@@ -83,12 +83,6 @@
           <label class="form-control--static mb-0" name="expiration_date"> {{$dataPago->expiration_date}} </label>  
 	      </div>
 	    </div>
-	      <div class="form-group">
-	      <label for="CVV" class="col-md-2 control-label">Codigo de seguridad:</label><br>
-	      <div class="col-md-6">
-	        <label class="form-control--static mb-0" name="CVV">{{$dataPago->CVV}} </label>   
-	      </div>
-	    </div>
 	     <div class="form-group">
 	      <label for="postal_code" class="col-md-2 control-label">Codigo Postal:</label><br>
 	      <div class="col-md-6">

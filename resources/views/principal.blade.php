@@ -39,7 +39,7 @@
    <!-- Categorias -->
  
     <div id="separador" style="background-color: #efefef;" align="center">
-        <h3>Categorias</h3> 
+        <h3>Categorías</h3> 
     </div>
 
     <div class="row col-md-9" >
@@ -62,7 +62,7 @@
 
     <!-- FAVORITOS -->
     <div id="separador" class="row col-md-12" style="background-color: #efefef; margin-top: 50px;" align="center">
-        <h3>Mas vendidos</h3> 
+        <h3>Más vendidos</h3> 
     </div>
    <div class="row col-md-9" >
         @foreach ($produc as $p)
