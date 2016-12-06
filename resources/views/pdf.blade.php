@@ -70,9 +70,9 @@
 	<tr>
 		<th>#</th>
         <th>Nombre</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
 		<th>Cantidad</th>                                   
-        <th>Precio</th>
+        <th>Precio (sin impuestos)</th>
         
 	</tr>
 	@foreach ( $prod as $p )
@@ -88,7 +88,7 @@
         <td>-</td>
         <td>-</td>
 		<td>-</td>
-        <td>Total</td>
+        <td>Total (con impuestos)</td>
         <td>$ {{number_format($sal->total)}}</td>
 
     </tr>
