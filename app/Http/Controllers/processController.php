@@ -42,7 +42,7 @@ class processController extends Controller
     public function ProductView($product){ 
       $dataProduct = products::find($product);
       $similarProducts = DB::table('products')->where('categories_id','=',$dataProduct->categories_id)->where('id','<>',$product)->limit(3)->get();
-      $productComments = DB::table('comments as c')->join('users as u','u.id','=','c.user_id')->select('u.id','u.image','c.comment')->where('product_id','=',$product)->where('approved','<>',0)->get();
+      $productComments = DB::table('comments as c')->join('users as u','u.id','=','c.user_id')->select('u.id','u.image','u.name','c.comment','c.created_at')->where('product_id','=',$product)->where('approved','<>',0)->get();
       $checkIfCanVote = DB::table('sales as s')->join('product_sold as ps','ps.sales_id','=','s.id')->select('s.user_id')->where('ps.product_id','=',$product)->get();
       return view('sales.productView', compact('dataProduct','similarProducts','productComments','checkIfCanVote'));      
     }
@@ -54,6 +54,7 @@ class processController extends Controller
     }
 
     public function showAllProducts() {
+    
     $prod=products::all();
     return view('allProducts',compact('prod'));
     }
